@@ -1,6 +1,8 @@
 {
   "name": "PocketDoctor",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "7b881e6b"
 }
