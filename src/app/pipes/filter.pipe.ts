@@ -11,7 +11,11 @@ export class FilterPipe implements PipeTransform {
     }
     textSearch = textSearch.toLowerCase();
     return productos.filter(product => {
-      return product.nombre.toLowerCase().includes(textSearch);
+      return (
+        product.nombre.toLowerCase().includes(textSearch) ||
+        product.tipo.toLowerCase().includes(textSearch) ||
+        product.categoria.toLowerCase().includes(textSearch)
+      );
     });
   }
 }

@@ -12,22 +12,24 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- <ion-item routerLink="/product"> -->
-
 <ion-content>
   <ion-list *ngIf="products.length == 0">
     <ion-item *ngFor="let i of [1, 1, 1, 1, 1]">
       <ion-label>
-        <ion-skeleton-text width="50%"></ion-skeleton-text>
-        <ion-skeleton-text width="90%"></ion-skeleton-text>
+        <ion-skeleton-text animated width="50%"></ion-skeleton-text>
+        <ion-skeleton-text animated width="90%"></ion-skeleton-text>
       </ion-label>
     </ion-item>
   </ion-list>
 
   <ion-list *ngIf="products.length > 0">
-    <ion-item *ngFor="let product of (products | filter: textSearch)" routerLink="/product">
+    <ion-item
+      *ngFor="let product of (products | filter: textSearch)"
+      (click)="viewProduct(product)"
+    >
       <ion-label>
-        <h4>{{ product.nombre }}</h4>
+        <h4>{{ product.nombre }} {{ product.tipo }}</h4>
+        <h4>{{ product.categoria }}</h4>
       </ion-label>
     </ion-item>
   </ion-list>
