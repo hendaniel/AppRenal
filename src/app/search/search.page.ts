@@ -22,7 +22,7 @@ export class SearchPage implements OnInit {
   }
 
   viewProduct(product: Product) {
-    this.router.navigate(["/product", product], {skipLocationChange: false,  replaceUrl: true});
+    this.router.navigate(["/product", product], {skipLocationChange: true,  replaceUrl: true});
   }
 
   ngOnInit() {}
