@@ -1,0 +1,23 @@
+.italic {
+  font-style: italic;
+  text-align: right;
+}
+
+.rojo {
+  --color: white;
+  --background: red;
+  --border-radius: 30px;
+  margin: 15px;
+}
+
+p {
+  margin: 15px;
+}
+
+.badge {
+  font-size: 16px;
+  --padding-bottom: 10px;
+  --padding-end: 15px;
+  --padding-start: 15px;
+  --padding-top: 10px;
+}
