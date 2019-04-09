@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Product } from "src/app/models/product";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-product",
@@ -6,23 +8,13 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./product.page.scss"]
 })
 export class ProductPage implements OnInit {
-  public numero: number;
-  constructor() {
-    this.numero = 15;
-    this.color();
+  public product: Product;
+
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe(data => {
+      this.product = <Product> data;
+    });
   }
 
-  ngOnInit() {
-    this.color();
-  }
-
-  color(): String {
-    if (this.numero > 15) {
-      return "primary";
-    } else if (this.numero > 20) {
-      return "secondary";
-    } else {
-      return "tertiary";
-    }
-  }
+  ngOnInit() {}
 }

@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar color="primary" no-border>
-    <ion-title>Papita</ion-title>
+    <ion-title> {{ product.nombre }}</ion-title>
     <ion-buttons slot="primary">
-      <ion-button href="https://es.wikipedia.org/wiki/Solanum_tuberosum">
+      <ion-button
+        href="https://www.eluniversal.com.mx/sites/default/files/u17566/4.jpeg"
+      >
         <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="start">
+      <ion-button
+        [routerLink]="['/search']"
+        routerLinkActive="router-link-active"
+      >
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -19,72 +30,47 @@
   </ion-card>
 
   <div>
-    <ion-item lines="none">
-      <ion-label slot="end" class="italic" text-wrap>
-        Solanum tuberosum
-      </ion-label>
-      <ion-avatar slot="start">
-          <img
-            src="https://elsignificadode.com/wp-content/uploads/2015/12/Significado-del-color-verde.jpg"
-          />
-        </ion-avatar>
-        <ion-label>Bueno</ion-label>
-    </ion-item>
-    
+      <ion-item>
+          <ion-label>Categoria</ion-label>
+          <ion-badge color="warn" class="badge"
+            >{{ product.categoria }}</ion-badge
+          >
+        </ion-item>
+        <ion-item>
+            <ion-label>Tipo</ion-label>
+            <ion-badge color="warn" class="badge"
+              >{{ product.tipo }}</ion-badge
+            >
+          </ion-item>
     <ion-item>
-      <ion-label text-wrap>
-        Multiline text that should wrap when it is too long to fit on one line
-        in the item.
-      </ion-label>
+      <ion-title>Valor Nutricional</ion-title>
     </ion-item>
 
-    <ion-item>
-        <ion-title>Valor Nutricional</ion-title>
-      </ion-item>
-    
     <ion-list lines="none">
       <ion-item>
+        <ion-label>Sodio</ion-label>
+        <ion-badge color="primary" class="badge"
+          >{{ product.sodio }} %</ion-badge
+        >
+      </ion-item>
+      <ion-item>
+        <ion-label>Potasio</ion-label>
+        <ion-badge color="primary" class="badge"
+          >{{ product.potasio }} %</ion-badge
+        >
+      </ion-item>
+      <ion-item>
+        <ion-label>Azucar</ion-label>
+        <ion-badge color="primary" class="badge"
+          >{{ product.proteinas }} %</ion-badge
+        >
+      </ion-item>
+      <ion-item>
         <ion-label>Calorias</ion-label>
-        <ion-badge color="primary" class="badge">77</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Grasas totales</ion-label>
-        <ion-badge color="primary" class="badge">0,1 g</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Colesterol 0 mg</ion-label>
-        <ion-badge color="primary" class="badge">72</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Sodio 6 mg</ion-label>
-        <ion-badge color="primary" class="badge">72</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Potasio 421 mg </ion-label>
-        <ion-badge color={{color()}} class="badge">77</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Hidratos de carbono 17 g</ion-label>
-        <ion-badge color="primary" class="badge">72</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Fibra alimentaria 2,2 g </ion-label>
-        <ion-badge color="primary" class="badge">72</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Azúcares 0,8 g</ion-label>
-        <ion-badge color="primary" class="badge">72</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Proteínas 2 g</ion-label>
-        <ion-badge color="primary" class="badge">72</ion-badge>
+        <ion-badge color="primary" class="badge"
+          >{{ product.calorias }} %</ion-badge
+        >
       </ion-item>
     </ion-list>
-
-    <ion-item routerLink="/search">
-    <ion-button>
-      Regresar
-    </ion-button>
-    </ion-item>
   </div>
 </ion-content>
