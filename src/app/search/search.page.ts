@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Product } from "../models/product";
 import { ProductService } from "../Services/product.service";
 import { Router } from "@angular/router";
+import { Resultado } from '../models/resultado';
 
 @Component({
   selector: "app-search",
@@ -9,11 +10,11 @@ import { Router } from "@angular/router";
   styleUrls: ["./search.page.scss"]
 })
 export class SearchPage implements OnInit {
-  products: Product[] = [];
+  products: Resultado[] = [];
   textSearch = "";
 
   constructor(private productService: ProductService, private router: Router) {
-    this.productService.getAliments().subscribe(resp => (this.products = resp));
+    this.productService.getNamesProducts().subscribe(resp => (this.products = resp));
   }
 
   searchProduct(event) {
@@ -21,7 +22,7 @@ export class SearchPage implements OnInit {
     this.textSearch = text;
   }
 
-  viewProduct(product: Product) {
+  viewProduct(product: Resultado) {
     this.router.navigate(["/product", product], {skipLocationChange: true,  replaceUrl: true});
   }
 
