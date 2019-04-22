@@ -1,10 +1,11 @@
-import { Pipe, PipeTransform } from "@angular/core";
-import { Resultado } from '../models/resultado';
+import { Pipe, PipeTransform } from '@angular/core';
+import { Resultado } from '../../models/resultado';
 
 @Pipe({
-  name: "filter"
+  name: 'filterComp'
 })
-export class FilterPipe implements PipeTransform {
+export class FilterCompPipe implements PipeTransform {
+
   transform(productos: Resultado[], textSearch: string): Resultado[] {
     if (textSearch.length === 0) {
       return productos;
@@ -18,4 +19,5 @@ export class FilterPipe implements PipeTransform {
       );
     });
   }
+
 }
