@@ -18,7 +18,7 @@
       <ion-item
         *ngFor="let product of (products | filter: textSearch)"
       >
-        <ion-label>
+        <ion-label (click)=compare(product)>
           <h4>{{ product.nombre }} {{ product.tipo }}</h4>
           <h4>{{ product.categoria }}</h4>
         </ion-label>

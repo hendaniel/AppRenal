@@ -4,3 +4,8 @@ export class Resultado {
   tipo: string;
   id: string;
 }
+
+export class Ids{
+  id_uno : string;
+  id_dos : string;
+}
