@@ -10,7 +10,6 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { HttpClientModule } from "@angular/common/http";
-import { PipesCompModule } from './Views/pipes/pipes.module';
 import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { PipesModule } from './pipes/pipes.module';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    PipesCompModule,
     PipesModule
   ],
   providers: [

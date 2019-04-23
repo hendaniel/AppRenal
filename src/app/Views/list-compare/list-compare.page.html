@@ -16,7 +16,7 @@
   
     <ion-list>
       <ion-item
-        *ngFor="let product of (products | filterComp: textSearch)"
+        *ngFor="let product of (products | filter: textSearch)"
       >
         <ion-label>
           <h4>{{ product.nombre }} {{ product.tipo }}</h4>
