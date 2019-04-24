@@ -1,0 +1,27 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+      <ion-title>Comparar con...</ion-title>
+    </ion-toolbar>
+    <ion-toolbar color="primary">
+      <ion-searchbar
+        placeholder="Buscar..."
+        animated
+        (ionChange)="searchProduct($event)"
+      >
+      </ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-list>
+      <ion-item
+        *ngFor="let product of (products | filter: textSearch)"
+      >
+        <ion-label (click)=compare(product)>
+          <h4>{{ product.nombre }} {{ product.tipo }}</h4>
+          <h4>{{ product.categoria }}</h4>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>

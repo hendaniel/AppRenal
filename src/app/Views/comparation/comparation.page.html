@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Resultados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="margin: 15px;">
+  <ion-label>Has comparado {{id1}} con {{id2}}</ion-label>
+  <ion-list >
+    <ion-item *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+      <ion-label>Resultado {{ i }}</ion-label>
+    </ion-item>
+  </ion-list>
+</div>
+</ion-content>

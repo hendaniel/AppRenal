@@ -2,10 +2,8 @@
   <ion-toolbar color="primary" no-border>
     <ion-title> {{ product.nombre }}</ion-title>
     <ion-buttons slot="primary">
-      <ion-button
-        href="https://www.eluniversal.com.mx/sites/default/files/u17566/4.jpeg"
-      >
-        <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+      <ion-button [routerLink]="['/list-compare', product]" routerLinkActive="router-link-active" >
+        <ion-label> Comparar </ion-label>
       </ion-button>
     </ion-buttons>
 
@@ -30,18 +28,14 @@
   </ion-card>
 
   <div>
-      <ion-item>
-          <ion-label>Categoria</ion-label>
-          <ion-badge color="warn" class="badge"
-            >{{ product.categoria }}</ion-badge
-          >
-        </ion-item>
-        <ion-item>
-            <ion-label>Tipo</ion-label>
-            <ion-badge color="warn" class="badge"
-              >{{ product.tipo }}</ion-badge
-            >
-          </ion-item>
+    <ion-item>
+      <ion-label>Categoria</ion-label>
+      <ion-badge color="warn" class="badge">{{ product.categoria }}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo</ion-label>
+      <ion-badge color="warn" class="badge">{{ product.tipo }}</ion-badge>
+    </ion-item>
     <ion-item>
       <ion-title>Valor Nutricional</ion-title>
     </ion-item>
