@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../Services/product.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Resultado, Ids } from "../../models/resultado";
+import { Resultado, DosAlimentos } from "../../models/resultado";
 
 @Component({
   selector: "app-list-compare",
@@ -11,6 +11,7 @@ import { Resultado, Ids } from "../../models/resultado";
 export class ListComparePage implements OnInit {
   products: Resultado[] = [];
   textSearch = "";
+  ids: DosAlimentos;
 
   constructor(
     private productService: ProductService,
@@ -20,6 +21,16 @@ export class ListComparePage implements OnInit {
     this.productService
       .getNamesProducts()
       .subscribe(resp => (this.products = resp));
+
+    this.ids = new DosAlimentos();
+    this.ids.id_uno = Number.parseInt(
+      this.ativateroute.snapshot.paramMap.get("id")
+    );
+    this.ids.nombre_uno = this.ativateroute.snapshot.paramMap.get("nombre");
+    this.ids.tipo_uno = this.ativateroute.snapshot.paramMap.get("tipo");
+    this.ids.categoria_uno = this.ativateroute.snapshot.paramMap.get(
+      "categoria"
+    );
   }
 
   searchProduct(event) {
@@ -28,13 +39,14 @@ export class ListComparePage implements OnInit {
   }
 
   compare(product: Resultado) {
-    var ids: Ids = new Ids();
-    var id1 = this.ativateroute.snapshot.paramMap.get("id");
-    ids.id_uno = id1;
-    ids.id_dos = product.id;
-    console.log(id1 + " " + product.id);
-    if (ids.id_uno != ids.id_dos) {
-      return this.router.navigate(["/comparation", ids]);
+    this.ids.id_dos = product.id;
+    this.ids.nombre_dos = product.nombre;
+    this.ids.tipo_dos = product.tipo;
+    this.ids.categoria_dos = product.categoria;
+
+    console.log(this.ids);
+    if (this.ids.id_uno != this.ids.id_dos) {
+      return this.router.navigate(["/comparation", this.ids]);
     } else {
       console.log("Los productos a comparar deben ser diferentes.");
     }

@@ -2,7 +2,7 @@
   <ion-toolbar color="primary" no-border>
     <ion-title> {{ product.nombre }}</ion-title>
     <ion-buttons slot="primary">
-      <ion-button [routerLink]="['/list-compare', product]" routerLinkActive="router-link-active" >
+      <ion-button (click)="comparar(product)" >
         <ion-label> Comparar </ion-label>
       </ion-button>
     </ion-buttons>
