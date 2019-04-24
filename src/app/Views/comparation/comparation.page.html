@@ -6,11 +6,29 @@
 
 <ion-content>
   <div style="margin: 15px;">
-  <ion-label>Has comparado {{id1}} con {{id2}}</ion-label>
-  <ion-list >
-    <ion-item *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-      <ion-label>Resultado {{ i }}</ion-label>
+    <ion-item>
+      <ion-label
+        >Has comparado {{ producto1.nombre }} {{ producto1.tipo }} <br />
+        con {{ producto2.nombre }} {{ producto2.tipo }}</ion-label
+      >
     </ion-item>
-  </ion-list>
-</div>
+    <ion-list>
+      <ion-item *ngFor="let elemento of arreglo">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="12">{{ elemento.Nombre }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="3">{{ elemento.Valor1 }}</ion-col>
+            <ion-col size="5">
+              <div [ngStyle]="{ color: elemento.Color }">
+                {{ elemento.Resultado }}
+              </div>
+            </ion-col>
+            <ion-col size="3">{{ elemento.Valor2 }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

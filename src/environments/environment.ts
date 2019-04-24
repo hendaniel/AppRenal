@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  urlGetAllProducts : "http://localhost:8081/getAlimentoName",
-  urlGetProductoByID : "http://localhost:8081/getAlimentoById"
+  urlGetAllProducts: "http://localhost:8081/getAlimentoName",
+  urlGetProductoByID: "http://localhost:8081/getAlimentoById",
+  urlCompareAliment: "http://localhost:8081/compararAlimentos"
 };
 
 /*
