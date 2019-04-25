@@ -14,7 +14,7 @@ export class ProductService {
   getNamesProducts() {
     return this.http
       .get<Resultado[]>(environment.urlGetAllProducts)
-      .pipe(delay(200));
+      .pipe(delay(150));
   }
 
   getAliment(id : string) {
