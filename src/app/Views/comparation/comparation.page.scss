@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+ion-row {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+
+.bold {
+    font-weight: bold;
+    text-align: left;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.grid {
+    margin: 5px;
+    border-radius: 10px;
+    background-color: rgb(248, 238, 97);
+}
