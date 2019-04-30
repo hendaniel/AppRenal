@@ -10,6 +10,8 @@ const routes: Routes = [
   { path: 'habit', loadChildren: './Views/habit/habit.module#HabitPageModule' },
   { path: 'list-compare', loadChildren: './Views/list-compare/list-compare.module#ListComparePageModule' },
   { path: 'comparation', loadChildren: './Views/comparation/comparation.module#ComparationPageModule' },
+  { path: 'login', loadChildren: './Views/login/login.module#LoginPageModule' },
+  { path: 'register', loadChildren: './Views/register/register.module#RegisterPageModule' },
 
 
 
