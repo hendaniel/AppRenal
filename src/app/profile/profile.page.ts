@@ -7,8 +7,11 @@ import { user } from '../models/user';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
-  constructor() { }
+  
+  usuario: user;
+  constructor() { 
+    this.usuario = new user();
+  }
 
   ngOnInit() {
   }
