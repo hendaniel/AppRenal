@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlGetAllProducts : "http://localhost:8080/getAllAlimentos"
+  urlGetAllProducts : "http://localhost:8081/getAllAlimentos"
 };
 
 /*
