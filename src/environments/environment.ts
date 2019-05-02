@@ -13,13 +13,9 @@ const myIP = "localhost";
 
 export const environment = {
   production: false,
-<<<<<<< HEAD
-  urlGetAllProducts : "http://localhost:8081/getAllAlimentos"
-=======
   urlGetAllProducts: "http://" + myIP + ":8081/getAlimentoName",
   urlGetProductoByID: "http://" + myIP + ":8081/getAlimentoById",
   urlCompareAliment: "http://" + myIP + ":8081/compararAlimentos"
->>>>>>> 14536c5317d29758322fba3584059b37aea35f9e
 };
 
 
