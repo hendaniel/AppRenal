@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { Product } from "../models/product";
+import { Resultado } from '../models/resultado';
 
 @Pipe({
   name: "filter"
 })
 export class FilterPipe implements PipeTransform {
-  transform(productos: Product[], textSearch: string): Product[] {
+  transform(productos: Resultado[], textSearch: string): Resultado[] {
     if (textSearch.length === 0) {
       return productos;
     }

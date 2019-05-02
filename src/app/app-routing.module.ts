@@ -7,6 +7,11 @@ const routes: Routes = [
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
   { path: 'diets', loadChildren: './diets/diets.module#DietsPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },  { path: 'product', loadChildren: './Views/product/product.module#ProductPageModule' },
+  { path: 'habit', loadChildren: './Views/habit/habit.module#HabitPageModule' },
+  { path: 'list-compare', loadChildren: './Views/list-compare/list-compare.module#ListComparePageModule' },
+  { path: 'comparation', loadChildren: './Views/comparation/comparation.module#ComparationPageModule' },
+  { path: 'login', loadChildren: './Views/login/login.module#LoginPageModule' },
+  { path: 'register', loadChildren: './Views/register/register.module#RegisterPageModule' },
 
 
 

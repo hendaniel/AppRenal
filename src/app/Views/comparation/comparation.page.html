@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Has comparado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="margin: 5px;">
+    <ion-item lines="none">
+      <ion-grid>
+        <ion-row class="title">
+          <ion-col size="6">
+            {{ producto1.nombre }} {{ producto1.tipo }}
+          </ion-col>
+          <ion-col size="6">
+            {{ producto2.nombre }} {{ producto2.tipo }}</ion-col
+          >
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-list no-lines>
+      <ion-item *ngFor="let elemento of arreglo" lines="none">
+        <ion-grid fixed class="grid">
+          <ion-row>
+            <ion-col size="12" class="bold">{{ elemento.Nombre }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="4">{{ elemento.Valor1 }}</ion-col>
+            <ion-col size="4">
+              <div
+                [ngStyle]="{ 'background-color': elemento.Color }"
+                style="color: black; font-weight: bold; border-radius: 10px; border: 1px solid black; margin: 0px 5px 0px 5px;"
+              >
+                {{ elemento.Resultado }}
+              </div>
+            </ion-col>
+            <ion-col size="4">{{ elemento.Valor2 }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
