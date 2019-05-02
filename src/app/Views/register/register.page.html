@@ -12,18 +12,18 @@
     <ion-title>Registro</ion-title>
     <ion-list>
       <ion-item>
-        <ion-input placeholder = "Nombre"></ion-input>
+        <ion-input placeholder = "Nombre" [(ngModel)] = "nombre"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder = "Correo"></ion-input>
+        <ion-input placeholder = "Correo" [(ngModel)] = "correo"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder = "Fecha de nacimiento"></ion-input>
+      <ion-input placeholder = "Fecha de nacimiento" [(ngModel)] = "fecha"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder = "Contraseña"></ion-input>
+      <ion-input placeholder = "Contraseña" [(ngModel)] = "contrasena"></ion-input>
     </ion-item>
   </ion-list>
-  <ion-button expand = "block" color = "primary">Registrarse</ion-button>
+  <ion-button expand = "block" color = "primary" (click) = "register()">Registrarse</ion-button>
 </div>
 </ion-content>
