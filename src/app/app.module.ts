@@ -11,6 +11,7 @@ import { AppRoutingModule } from "./app-routing.module";
 
 import { HttpClientModule } from "@angular/common/http";
 import { PipesModule } from './pipes/pipes.module';
+import { NeedAuthGuard } from './NeedAuthGuard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,8 @@ import { PipesModule } from './pipes/pipes.module';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    NeedAuthGuard
   ],
   bootstrap: [AppComponent]
 })

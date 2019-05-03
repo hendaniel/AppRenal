@@ -5,5 +5,18 @@
 </ion-header>
 
 <ion-content>
-
+  <div>
+    <ion-title>Pocket Doctor</ion-title>
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Correo" [(ngModel)] = "correo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Contraseña" type = "password" [(ngModel)] = "password"></ion-input>
+      </ion-item>
+        <ion-button color = "primary" expand = "block" (click) = "login()">login</ion-button>
+        <br>
+        <ion-button color = "light" expand = "block" (click) = "register()">Registro</ion-button>
+    </ion-list>
+  </div>
 </ion-content>

@@ -15,7 +15,10 @@ export const environment = {
   production: false,
   urlGetAllProducts: "http://" + myIP + ":8081/getAlimentoName",
   urlGetProductoByID: "http://" + myIP + ":8081/getAlimentoById",
-  urlCompareAliment: "http://" + myIP + ":8081/compararAlimentos"
+  urlCompareAliment: "http://" + myIP + ":8081/compararAlimentos",
+  urlLogin: "http://" + myIP + ":8081/validateUser",
+  urlRegistro: "http://" + myIP + ":8081/addUser",
+  
 };
 
 

@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NeedAuthGuard } from './NeedAuthGuard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
-  { path: 'diets', loadChildren: './diets/diets.module#DietsPageModule' },
-  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },  { path: 'product', loadChildren: './Views/product/product.module#ProductPageModule' },
-  { path: 'habit', loadChildren: './Views/habit/habit.module#HabitPageModule' },
-  { path: 'list-compare', loadChildren: './Views/list-compare/list-compare.module#ListComparePageModule' },
-  { path: 'comparation', loadChildren: './Views/comparation/comparation.module#ComparationPageModule' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule',  canActivate: [NeedAuthGuard] },
+  { path: 'search', loadChildren: './search/search.module#SearchPageModule',  canActivate: [NeedAuthGuard] },
+  { path: 'diets', loadChildren: './diets/diets.module#DietsPageModule',  canActivate: [NeedAuthGuard] },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule',  canActivate: [NeedAuthGuard] },
+  { path: 'product', loadChildren: './Views/product/product.module#ProductPageModule',  canActivate: [NeedAuthGuard] },
+  { path: 'habit', loadChildren: './Views/habit/habit.module#HabitPageModule',  canActivate: [NeedAuthGuard] },
+  { path: 'list-compare', loadChildren: './Views/list-compare/list-compare.module#ListComparePageModule',  canActivate: [NeedAuthGuard] },
+  { path: 'comparation', loadChildren: './Views/comparation/comparation.module#ComparationPageModule',  canActivate: [NeedAuthGuard] },
   { path: 'login', loadChildren: './Views/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './Views/register/register.module#RegisterPageModule' },
 
