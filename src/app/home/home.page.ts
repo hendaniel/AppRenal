@@ -1,17 +1,25 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from "@angular/core";
+import { HabitService } from "../Services/habit.service";
+import { Habito } from "../models/resultado";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: "app-home",
+  templateUrl: "home.page.html",
+  styleUrls: ["home.page.scss"]
 })
 export class HomePage {
-
-  constructor(private router : Router){
+  habito: Habito;
+  constructor(private habitService: HabitService) {
+    this.habitService.getHabit().subscribe(res => {
+      this.habito = res;
+    });
   }
-  
-  go(){
-    this.router.navigate(['habit']);
+
+  newHabit() {
+    console.log("Generando nuevo habito...");
+    this.habito = null;
+    this.habitService.getHabit().subscribe(res => {
+      this.habito = res;
+    });
   }
 }

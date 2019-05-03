@@ -1,44 +1,37 @@
 <ion-header no-border>
-    <ion-toolbar color="primary">
-      <ion-title>Habitos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Habitos</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <ion-card (click)="go()">
+  <ion-card *ngIf="habito == null">
     <ion-card-header>
-      <ion-card-title> Habito 1</ion-card-title>
-      <ion-card-subtitle>Disfruta de las gaseosas comprando las de "zero azucar".</ion-card-subtitle>
+      <ion-card-title
+        ><ion-skeleton-text animated width="50%"></ion-skeleton-text>
+      </ion-card-title>
+      <ion-card-subtitle
+        ><ion-skeleton-text animated width="90%"></ion-skeleton-text
+      ></ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-img
-        src="https://jumbocolombiafood.vteximg.com.br/arquivos/ids/187648-1000-1000/7702535006764.jpg?v=636142066835300000"
-      ></ion-img>
+      <ion-skeleton-text animated width="50%" height="50px"></ion-skeleton-text>
     </ion-card-content>
   </ion-card>
-  <br />
-  <ion-card>
+
+  <ion-card *ngIf="habito != null">
     <ion-card-header>
-      <ion-card-title> Habito 2</ion-card-title>
-      <ion-card-subtitle>Toma ocho vasos de agua al dia.</ion-card-subtitle>
+      <ion-card-title> Habito {{ habito.number }}</ion-card-title>
+      <ion-card-subtitle>{{ habito.informacion }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-img
-        src="https://bienestarysalud.info/wp-content/uploads/2017/08/00072-agua-salud.jpg"
-        ></ion-img>
+      <ion-img src="{{ habito.imagen }}"></ion-img>
     </ion-card-content>
   </ion-card>
-  <br />
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title> Habito 3</ion-card-title>
-      <ion-card-subtitle>Puedes encontrar potasio facilmente en una banana xd.</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-img
-        src="http://www.okeyqueretaro.mx/wp-content/uploads/2018/03/banana.jpg"
-      ></ion-img>
-    </ion-card-content>
-  </ion-card>
-  <br />
+
+  <div class="boton">
+    <ion-button (click)="newHabit()" fill="solid" shape="round">
+      Nuevo habito
+    </ion-button>
+  </div>
 </ion-content>

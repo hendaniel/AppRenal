@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../Services/product.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Resultado, DosAlimentos } from "../../models/resultado";
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: "app-list-compare",
@@ -16,7 +17,8 @@ export class ListComparePage implements OnInit {
   constructor(
     private productService: ProductService,
     private router: Router,
-    private ativateroute: ActivatedRoute
+    private ativateroute: ActivatedRoute,
+    private toastController: ToastController
   ) {
     this.productService
       .getNamesProducts()
@@ -38,7 +40,7 @@ export class ListComparePage implements OnInit {
     this.textSearch = text;
   }
 
-  compare(product: Resultado) {
+  async compare(product: Resultado) {
     this.ids.id_dos = product.id;
     this.ids.nombre_dos = product.nombre;
     this.ids.tipo_dos = product.tipo;
@@ -49,6 +51,11 @@ export class ListComparePage implements OnInit {
       return this.router.navigate(["/comparation", this.ids]);
     } else {
       console.log("Los productos a comparar deben ser diferentes.");
+      const toast = await this.toastController.create({
+        message: 'Los productos a comparar deben ser diferentes.',
+        duration: 2000
+      });
+      toast.present();
     }
   }
 

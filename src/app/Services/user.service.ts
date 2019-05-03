@@ -13,12 +13,10 @@ export class UserService {
   private logToken = ">.<";
 
   constructor(private http: HttpClient) {
-    
   }
 
    setUser(usuario: user){
     this.usuario = usuario;
-    this.usuario.contraseña = "NO SEA SAPO";
     this.logged = true;
     localStorage.setItem(this.logToken, JSON.stringify(this.usuario));
   }
