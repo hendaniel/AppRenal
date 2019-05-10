@@ -1,29 +1,36 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-button [routerLink]="['/login']" routerLinkActive="router-link-active">
-      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-    </ion-button>
   <div>
     <ion-title>Registro</ion-title>
     <ion-list>
       <ion-item>
-        <ion-input placeholder = "Nombre" [(ngModel)] = "nombre"></ion-input>
+        <ion-input placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder = "Correo" [(ngModel)] = "correo"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder = "Fecha de nacimiento" [(ngModel)] = "fecha"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder = "Contraseña" [(ngModel)] = "contrasena"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-button expand = "block" color = "primary" (click) = "register()">Registrarse</ion-button>
-</div>
+        <ion-input placeholder="Correo" [(ngModel)]="correo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          placeholder="Fecha de nacimiento"
+          [(ngModel)]="fecha"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          placeholder="Contraseña"
+          [(ngModel)]="contrasena"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" color="primary" (click)="register()"
+      >Registrarse</ion-button
+    >
+  </div>
 </ion-content>

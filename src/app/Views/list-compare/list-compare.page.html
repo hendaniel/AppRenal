@@ -1,6 +1,14 @@
 <ion-header no-border>
   <ion-toolbar color="primary">
     <ion-title>Comparar con...</ion-title>
+    <ion-buttons slot="start">
+      <ion-button
+        [routerLink]="['/product']"
+        routerLinkActive="router-link-active"
+      >
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
   <ion-toolbar color="primary">
     <ion-searchbar
@@ -24,7 +32,7 @@
 
   <ion-list *ngIf="products.length > 0">
     <ion-item
-      *ngFor="let product of (products | filter: textSearch)"
+      *ngFor="let product of products | filter: textSearch"
       (click)="compare(product)"
     >
       <ion-label>

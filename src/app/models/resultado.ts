@@ -26,3 +26,10 @@ export class Comparado {
   Resultado: string;
   Color: string;
 }
+
+export class Habito {
+  id: number;
+  number: number;
+  informacion: string;
+  imagen: string;
+}
