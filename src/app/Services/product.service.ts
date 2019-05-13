@@ -9,7 +9,17 @@ import { Resultado, Comparado } from '../models/resultado';
   providedIn: "root"
 })
 export class ProductService {
+  private listNameProducts: Array<Resultado>;
   constructor(private http: HttpClient) {}
+
+  getListNameProducts(){
+    return this.listNameProducts;
+  }
+
+  setListNameProducts(list: Resultado[]){
+    this.listNameProducts = list;
+  }
+
 
   getNamesProducts() {
     return this.http

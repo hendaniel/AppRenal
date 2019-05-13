@@ -18,12 +18,17 @@ export class ListComparePage implements OnInit {
     private productService: ProductService,
     private router: Router,
     private ativateroute: ActivatedRoute,
-    private toastController: ToastController
-  ) {
-    this.productService
-      .getNamesProducts()
-      .subscribe(resp => (this.products = resp));
+    private toastController: ToastController) {
 
+      if(productService.getListNameProducts() == null){
+        this.productService.getNamesProducts().subscribe(resp => {
+          this.products = resp;
+          this.productService.setListNameProducts(resp);
+        });
+      }
+      else{
+        this.products = productService.getListNameProducts();
+      }
     this.ids = new DosAlimentos();
     this.ids.id_uno = Number.parseInt(
       this.ativateroute.snapshot.paramMap.get("id")

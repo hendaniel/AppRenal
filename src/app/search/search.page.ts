@@ -13,7 +13,15 @@ export class SearchPage implements OnInit {
   textSearch = "";
 
   constructor(private productService: ProductService, private router: Router) {
-    this.productService.getNamesProducts().subscribe(resp => (this.products = resp));
+    if(productService.getListNameProducts() == null){
+      this.productService.getNamesProducts().subscribe(resp => {
+        this.products = resp;
+        this.productService.setListNameProducts(resp);
+      });
+    }
+    else{
+      this.products = productService.getListNameProducts();
+    }
   }
 
   searchProduct(event) {

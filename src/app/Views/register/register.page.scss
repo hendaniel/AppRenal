@@ -1,9 +1,19 @@
-div{
-    margin-top: 15%;
-    margin-left: 5%;
-    margin-right: 5%;
-    text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+.box {
+  margin-top: 15%;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
 }
-ion-button{
-    margin-top: 10%;
+ion-button {
+  margin-top: 10%;
+}
+
+.colorLabel {
+  color: blue;
+}
+
+.nice {
+  font-family: "Poppins", sans-serif;
 }
