@@ -13,11 +13,14 @@ export class LoginPage implements OnInit {
   usuario: user;
   correo: string;
   password: string;
+  hide : boolean;
+
   constructor(
     public navCtrl: NavController,
     public servicios: UserService,
     private toastController: ToastController
   ) {
+    this.hide = true;
     if (servicios.isLogin()) this.navCtrl.navigateForward("/home");
   }
 
@@ -25,7 +28,9 @@ export class LoginPage implements OnInit {
     this.servicios.login(this.correo, this.password).subscribe(result => {
       if (result != null) {
         this.servicios.setUser(result);
-        this.navCtrl.navigateForward("/search");
+        this.navCtrl.navigateForward("/profile");
+        this.correo = "";
+        this.password = "";
       } else {
         this.error();
       }
@@ -53,8 +58,7 @@ export class LoginPage implements OnInit {
     }else {
       const toast = await this.toastController.create({
         message: "Verifica el correo o la contraseña",
-        duration: 2000,
-        color : "primary"
+        duration: 2000
       });
       toast.present();
     }
