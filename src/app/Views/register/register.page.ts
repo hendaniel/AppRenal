@@ -34,6 +34,7 @@ export class RegisterPage implements OnInit {
 
   register() {
     // console.log(this.fecha);
+    //falta hacer validaciones de los campos
     let f = this.datepipe.transform(this.fecha, "d/MM/yyyy").toString();
     
     

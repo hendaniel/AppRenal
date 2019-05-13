@@ -25,6 +25,7 @@ export class LoginPage implements OnInit {
   }
 
   login() {
+    //falta hacer validacion del formato del correo
     this.servicios.login(this.correo, this.password).subscribe(result => {
       if (result != null) {
         this.servicios.setUser(result);
@@ -41,7 +42,6 @@ export class LoginPage implements OnInit {
   }
   ngOnInit() {}
 
-  // POR HACER
   async error() {
     if (this.correo == null || this.password == null) {
       const toast = await this.toastController.create({
