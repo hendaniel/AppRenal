@@ -1,9 +1,27 @@
 <ion-header no-border>
-  <ion-toolbar color="primary">
-    <ion-title>Mis Dietas</ion-title>
+  <ion-toolbar color="light">
+    <ion-title class="titulos">Mis Dietas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-title class="subtitulos" style="text-align: center;">En construcción...</ion-title>
+  <ion-card *ngFor="let item of [1,1,1,1]">
+    <ion-card-content>
+      <ion-thumbnail slot="start" style="width: 100%; height: 50px;">
+        <ion-skeleton-text
+          animated
+          style="width: 100%"
+        ></ion-skeleton-text>
+      </ion-thumbnail>
+      <!-- GG -->
+      <div style="text-align: center;">
+        <ion-spinner name="dots" style="--color:red;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:blue;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:yellow;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:gray;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:green;"></ion-spinner>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

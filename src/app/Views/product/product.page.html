@@ -1,9 +1,9 @@
-<ion-header>
-  <ion-toolbar color="primary" no-border>
-    <ion-title> {{ product.nombre }}</ion-title>
+<ion-header no-border>
+  <ion-toolbar color="light" no-border>
+    <ion-title class="titulos">{{ product.nombre }}</ion-title>
     <ion-buttons slot="primary">
-      <ion-button (click)="comparar(product)" >
-        <ion-label> Comparar </ion-label>
+      <ion-button (click)="comparar(product)" class="boton" fill="outline" shape="round">
+        <ion-label class="subtitulos"> Comparar </ion-label>
       </ion-button>
     </ion-buttons>
 

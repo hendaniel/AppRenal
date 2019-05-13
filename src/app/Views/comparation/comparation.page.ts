@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Resultado, Comparado } from "src/app/models/resultado";
 import { DosAlimentos } from "../../models/resultado";
 import { ProductService } from "../../Services/product.service";
@@ -17,12 +17,13 @@ export class ComparationPage implements OnInit {
 
   constructor(
     private activateroute: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private router : Router
   ) {
     this.producto1 = new Resultado();
     this.producto2 = new Resultado();
 
-    this.alimentos = <DosAlimentos> this.activateroute.snapshot.params;
+    this.alimentos = <DosAlimentos>this.activateroute.snapshot.params;
 
     var x = (this.producto1.id = this.alimentos.id_uno);
     this.producto1.nombre = this.alimentos.nombre_uno;
@@ -38,6 +39,13 @@ export class ComparationPage implements OnInit {
       this.arreglo = resp;
     });
   }
+
+  backList() {
+    return this.router.navigate(['/list-compare', this.producto1]);;
+  }
+
+  //[routerLink]="['/list-compare']"
+  // routerLinkActive="router-link-active"
 
   ngOnInit() {}
 }

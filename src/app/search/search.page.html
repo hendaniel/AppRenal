@@ -1,12 +1,13 @@
 <ion-header no-border>
-  <ion-toolbar color="primary">
-    <ion-title>Buscar</ion-title>
+  <ion-toolbar color="light">
+    <ion-title class="titulos">Buscar</ion-title>
   </ion-toolbar>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="light" class="titulos">
     <ion-searchbar
       placeholder="Buscar..."
       animated
       (ionChange)="searchProduct($event)"
+      class="titulos"
     >
     </ion-searchbar>
   </ion-toolbar>
@@ -24,14 +25,17 @@
 
   <ion-list *ngIf="products.length > 0">
     <ion-item
-      *ngFor="let product of (products | filter: textSearch)"
+      *ngFor="let product of products | filter: textSearch"
       (click)="viewProduct(product)"
     >
-      <ion-label>
-        <h4>{{ product.nombre }} {{ product.tipo }}</h4>
-        <h4>{{ product.categoria }}</h4>
+      <ion-label class="listaNombres">
+        <p>
+          <b>{{ product.nombre }}</b> <br />
+          Tipo: {{ product.tipo }}
+          <br />
+          Categoria: {{ product.categoria | uppercase }}
+        </p>
       </ion-label>
-      <ion-badge>{{product.id}}</ion-badge>
     </ion-item>
   </ion-list>
 </ion-content>

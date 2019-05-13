@@ -1,6 +1,6 @@
 <ion-header no-border>
-  <ion-toolbar color="primary">
-    <ion-title>Habitos</ion-title>
+  <ion-toolbar color="light">
+    <ion-title class="titulos">Habitos</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,18 +11,36 @@
         ><ion-skeleton-text animated width="50%"></ion-skeleton-text>
       </ion-card-title>
       <ion-card-subtitle
-        ><ion-skeleton-text animated width="90%"></ion-skeleton-text
+        ><ion-skeleton-text animated width="100%"></ion-skeleton-text
       ></ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-skeleton-text animated width="50%" height="50px"></ion-skeleton-text>
+      <ion-thumbnail slot="start" style="width: 100%; height: 200px;">
+        <ion-skeleton-text
+          style="--background-rgb:rgb(255,15,12); --border-radius:15px;"
+          animated
+          style="width: 100%"
+        ></ion-skeleton-text>
+      </ion-thumbnail>
+      <!-- GG -->
+      <div style="text-align: center;">
+        <ion-spinner name="dots" style="--color:red;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:blue;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:yellow;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:gray;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:green;"></ion-spinner>
+      </div>
     </ion-card-content>
   </ion-card>
 
   <ion-card *ngIf="habito != null">
     <ion-card-header>
-      <ion-card-title> Habito {{ habito.number }}</ion-card-title>
-      <ion-card-subtitle>{{ habito.informacion }}</ion-card-subtitle>
+      <ion-card-title class="titulos" style="font-weight: bold;">
+        Habito # {{ habito.number }}</ion-card-title
+      >
+      <ion-card-subtitle class="subtitulos">{{
+        habito.informacion
+      }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <ion-img src="{{ habito.imagen }}"></ion-img>
@@ -30,7 +48,12 @@
   </ion-card>
 
   <div class="boton">
-    <ion-button (click)="newHabit()" fill="solid" shape="round">
+    <ion-button
+      class="textoBoton"
+      (click)="newHabit()"
+      fill="solid"
+      shape="round"
+    >
       Nuevo habito
     </ion-button>
   </div>
