@@ -11,46 +11,45 @@
 
 <ion-content>
   <div class="subtitulos">
-    <ion-card color="light">
-      <div>
-        <ion-avatar *ngIf="show === true">
-          <ion-img
-            src="https://i0.wp.com/ayuntamientopinar.com/wp-content/uploads/2017/06/simbolo-de-usuario-negro-macho_318-60703.jpg?resize=300%2C300"
-          ></ion-img>
-        </ion-avatar>
-        <ion-avatar *ngIf="show === false" style="height: 100px; width: 100px;">
-          <ion-skeleton-text animated></ion-skeleton-text>
-        </ion-avatar>
-        <ion-label name="user" class="titulos">{{ usuario.nombre }}</ion-label>
-      </div>
-    </ion-card>
+    <div class="photo">
+      <ion-avatar *ngIf="show === true" class="avatar">
+        <ion-img
+          src="https://i0.wp.com/ayuntamientopinar.com/wp-content/uploads/2017/06/simbolo-de-usuario-negro-macho_318-60703.jpg?resize=300%2C300"
+        ></ion-img>
+      </ion-avatar>
+      <ion-avatar *ngIf="show === false" class="avatar">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label name="user" class="titulos">{{ usuario.nombre }}</ion-label>
+    </div>
 
-    <ion-title class="titulos" style="text-align: center;"
-      >Estadistica Nutricional</ion-title
-    >
+    <div class="box">
+      <h4 class="titulos" style="text-align: center;"
+        >Estadistica Nutricional</h4>
 
-    <ion-list *ngFor="let text of ejemplos" lines="none" class="subtitulos">
-      <ion-item>
-        <ion-label class="subtitulos">{{ text.nombre }}</ion-label>
-        <ion-badge color="primary" class="subtitulos badge">{{
-          text.valor
-        }}</ion-badge>
-      </ion-item>
-    </ion-list>
+      <ion-list *ngFor="let text of ejemplos" lines="none" class="subtitulos">
+        <ion-item>
+          <ion-label class="subtitulos">{{ text.nombre }}</ion-label>
+          <ion-badge color="primary" class="subtitulos badge">{{
+            text.valor
+          }}</ion-badge>
+        </ion-item>
+      </ion-list>
+    </div>
 
-    <ion-item>
-      <ion-title class="titulos" style="text-align: center;"
-        >Historial</ion-title
+    <div class="box">
+      <h4 class="titulos" style="text-align: center;"
+        >Historial</h4
       >
-    </ion-item>
 
-    <ion-list *ngFor="let text of ejemplos" lines="none" class="subtitulos">
-      <ion-item>
-        <ion-label class="subtitulos">{{ text.nombre }}</ion-label>
-        <ion-badge color="primary" class="subtitulos badge">{{
-          text.valor
-        }}</ion-badge>
-      </ion-item>
-    </ion-list>
+      <ion-list *ngFor="let text of ejemplos" lines="none" class="subtitulos">
+        <ion-item>
+          <ion-label class="subtitulos">{{ text.nombre }}</ion-label>
+          <ion-badge color="primary" class="subtitulos badge">{{
+            text.valor
+          }}</ion-badge>
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
 </ion-content>

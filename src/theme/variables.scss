@@ -1,6 +1,8 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -74,4 +76,29 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+
+  --ion-color-nara: #ff7b00;
+  --ion-color-nara-rgb: 56, 128, 255;
+  --ion-color-nara-contrast: #ffffff;
+  --ion-color-nara-contrast-rgb: 255, 255, 255;
+  --ion-color-nara-shade: #3171e0;
+  --ion-color-nara-tint: #4c8dff;
+
+  
+  --ion-font-family: 'Poppins';
 }
+
+// .ion-color-naranja {
+//   --ion-color-base: #ff7b00;
+//   --ion-color-base-rgb: 56, 128, 255;
+//   --ion-color-base-contrast: #ffffff;
+//   --ion-color-base-contrast-rgb: 255, 255, 255;
+//   --ion-color-base-shade: #3171e0;
+//   --ion-color-base-tint: #4c8dff;
+//   --ion-color:#ffffff;
+// }
+
+// .select{
+  
+// }

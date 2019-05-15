@@ -37,6 +37,14 @@ export class ProductPage implements OnInit {
     return this.router.navigate(['/list-compare', this.comp]);
   }
 
+  comer(product:Resultado){
+    this.comp.id = product.id;
+    this.comp.nombre = product.nombre;
+    this.comp.tipo = product.tipo;
+    this.comp.categoria = product.categoria;
+    this.router.navigate(['/eat', this.comp]);
+  }
+
   ngOnInit() {
     this.product = new Product();
     this.product.nombre = "";

@@ -1,0 +1,59 @@
+<ion-header no-border>
+  <ion-toolbar color="light">
+    <ion-title>Comer</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="backProduct()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-text color="primary">
+        <p>
+          ¿Cuantos gramos de {{ alimento.nombre }} de tipo
+          {{ alimento.tipo }} vas a comer?
+        </p>
+      </ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-range
+        min="0"
+        max="1000"
+        pin="true"
+        class="range"
+        value="{{ valor }}"
+        [(ngModel)]="valor"
+      >
+        <ion-label class="num" slot="start">0 </ion-label>
+        <ion-label class="num" slot="end"> 1000 </ion-label>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-grid class="tam">
+        <ion-row>
+          <ion-col align-self-start size="3">
+              <ion-icon style="font-size: 25px;" color="primary" (click)="valor = valor != 0 ? valor-1 : 0" name="arrow-dropdown-circle"></ion-icon>
+          </ion-col>
+          <ion-col align-self-center>
+            <ion-label>{{valor}} g</ion-label>
+          </ion-col>
+          <ion-col align-self-end size="3">
+              <ion-icon  style="font-size: 25px;" color="primary" (click)="valor = valor != 1000 ? valor+1 : 1000" name="arrow-dropup-circle"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item>
+      <div class="center">
+      <ion-button (click)="comer()" class="comer" fill="outline">
+        Aceptar y comer
+      </ion-button>
+    </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
