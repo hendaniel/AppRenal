@@ -41,28 +41,28 @@
     </ion-item>
 
     <ion-list lines="none">
-      <ion-item>
-        <ion-label>Sodio</ion-label>
+      <ion-item >
+        <ion-label>{{propiedades[0].nombre}}</ion-label>
         <ion-badge color="primary" class="badge"
-          >{{ product.sodio }} %</ion-badge
+          >{{ product.propiedades[0] }} {{propiedades[0].unidad}}</ion-badge
         >
       </ion-item>
       <ion-item>
-        <ion-label>Potasio</ion-label>
+        <ion-label>{{propiedades[1].nombre}}</ion-label>
         <ion-badge color="primary" class="badge"
-          >{{ product.potasio }} %</ion-badge
+          >{{ product.propiedades[1] }} {{propiedades[1].unidad}}</ion-badge
         >
       </ion-item>
       <ion-item>
-        <ion-label>Azucar</ion-label>
+        <ion-label>{{propiedades[12].nombre}}</ion-label>
         <ion-badge color="primary" class="badge"
-          >{{ product.proteinas }} %</ion-badge
+          >{{ product.propiedades[12] }} {{propiedades[12].unidad}}</ion-badge
         >
       </ion-item>
       <ion-item>
-        <ion-label>Calorias</ion-label>
+        <ion-label>{{propiedades[3].nombre}}</ion-label>
         <ion-badge color="primary" class="badge"
-          >{{ product.calorias }} %</ion-badge
+          >{{ product.propiedades[3] }} {{propiedades[3].unidad}}</ion-badge
         >
       </ion-item>
     </ion-list>

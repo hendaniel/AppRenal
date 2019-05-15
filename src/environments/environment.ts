@@ -13,13 +13,13 @@ const myIP = "localhost";
 
 export const environment = {
   production: false,
-  urlGetAllProducts: "http://" + myIP + ":8081/getAlimentoName",
-  urlGetProductoByID: "http://" + myIP + ":8081/getAlimentoById",
-  urlCompareAliment: "http://" + myIP + ":8081/compararAlimentos",
-  urlLogin: "http://" + myIP + ":8081/validateUser",
-  urlRegistro: "http://" + myIP + ":8081/addUser",
-  urlHabitos : "http://" + myIP + ":8081/getRandomHabito"
-  
+  urlGetAllProducts:    "http://" + myIP + ":8081/getAlimentoName",
+  urlGetProductoByID:   "http://" + myIP + ":8081/getAlimentoById",
+  urlCompareAliment:    "http://" + myIP + ":8081/compararAlimentos",
+  urlLogin:             "http://" + myIP + ":8081/validateUser",
+  urlRegistro:          "http://" + myIP + ":8081/addUser",
+  urlHabitos :          "http://" + myIP + ":8081/getRandomHabito",
+  urlGerPropiedades:    "http://" + myIP + ":8081/getAllPropiedades"
 };
 
 

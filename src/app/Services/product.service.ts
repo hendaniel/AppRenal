@@ -4,14 +4,30 @@ import { Product } from "../models/product";
 import { delay } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { Resultado, Comparado } from '../models/resultado';
+import { Observable } from 'rxjs';
+import { Propiedad } from '../models/propiedad';
 
 @Injectable({
   providedIn: "root"
 })
 export class ProductService {
   private listNameProducts: Array<Resultado>;
-  constructor(private http: HttpClient) {}
+  private names: Array<Propiedad>;
+  constructor(private http: HttpClient) {
+    this.names = new Array();
+    console.log("CREATION");
+    
+  
+    this.getPropiedades().subscribe(result => {
+        console.log(result);
+        this.names = result;
+      });
+    
+  }
 
+  getNamesPropiedades(): Propiedad[]{
+    return this.names;
+  }
   getListNameProducts(){
     return this.listNameProducts;
   }
@@ -35,5 +51,9 @@ export class ProductService {
   compareAliments(id1 , id2){
     const body = new HttpParams().set('idAlimento1', id1).set('idAlimento2', id2);
     return this.http.post<Comparado[]>(environment.urlCompareAliment, body);
+  }
+
+  getPropiedades() : Observable<Propiedad[]>{
+    return this.http.get<Propiedad[]>(environment.urlGerPropiedades);
   }
 }

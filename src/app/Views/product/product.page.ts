@@ -3,6 +3,7 @@ import { Product } from "src/app/models/product";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductService } from "../../Services/product.service";
 import { Resultado } from "src/app/models/resultado";
+import { Propiedad } from 'src/app/models/propiedad';
 
 @Component({
   selector: "app-product",
@@ -12,14 +13,13 @@ import { Resultado } from "src/app/models/resultado";
 export class ProductPage implements OnInit {
   public product: Product;
   public comp: Resultado;
-
+  public propiedades: Array<Propiedad> ;
   constructor(
     private prodService: ProductService,
     private route: ActivatedRoute,
     private router: Router
   ) {
     this.comp = new Resultado();
-
     this.prodService
       .getAliment(this.route.snapshot.paramMap.get("id"))
       .subscribe(prod => {
@@ -40,5 +40,11 @@ export class ProductPage implements OnInit {
   ngOnInit() {
     this.product = new Product();
     this.product.nombre = "";
+    this.propiedades = new Array();
+    this.propiedades = this.prodService.getNamesPropiedades();
+    console.log("AQUi");
+    console.log(this.propiedades);
+    
+    
   }
 }
