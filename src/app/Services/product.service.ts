@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, forwardRef } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Product } from "../models/product";
 import { delay } from "rxjs/operators";
@@ -20,6 +20,7 @@ export class ProductService {
   
     this.getPropiedades().subscribe(result => {
         console.log(result);
+        result.forEach(e =>{e.unidad = e.unidad.replace("%B5", "µ")})
         this.names = result;
       });
     
@@ -54,6 +55,6 @@ export class ProductService {
   }
 
   getPropiedades() : Observable<Propiedad[]>{
-    return this.http.get<Propiedad[]>(environment.urlGerPropiedades);
+    return this.http.get<Propiedad[]>(environment.urlGetPropiedades);
   }
 }

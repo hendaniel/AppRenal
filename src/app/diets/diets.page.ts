@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-diets',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DietsPage implements OnInit {
 
-  constructor() { }
+  constructor(private services: UserService) {
+    console.log(this.services.getUser());
+    
+   }
 
   ngOnInit() {
   }

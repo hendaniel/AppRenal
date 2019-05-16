@@ -33,7 +33,6 @@ export class ProductPage implements OnInit {
     this.comp.tipo = product.tipo;
     this.comp.categoria = product.categoria;
     
-    console.log(this.comp);
     return this.router.navigate(['/list-compare', this.comp]);
   }
 
@@ -48,11 +47,9 @@ export class ProductPage implements OnInit {
   ngOnInit() {
     this.product = new Product();
     this.product.nombre = "";
+    this.product.propiedades = new Array();
     this.propiedades = new Array();
     this.propiedades = this.prodService.getNamesPropiedades();
-    console.log("AQUi");
-    console.log(this.propiedades);
-    
     
   }
 }

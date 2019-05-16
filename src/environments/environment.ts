@@ -19,7 +19,10 @@ export const environment = {
   urlLogin:             "http://" + myIP + ":8081/validateUser",
   urlRegistro:          "http://" + myIP + ":8081/addUser",
   urlHabitos :          "http://" + myIP + ":8081/getRandomHabito",
-  urlGerPropiedades:    "http://" + myIP + ":8081/getAllPropiedades"
+  urlGetPropiedades:    "http://" + myIP + ":8081/getAllPropiedades",
+  urlAddHistoria:       "http://" + myIP + ":8081/addHistoria",
+  urlGetHistorias:      "http://" + myIP + ":8081/getHistoriaById",
+  urlAddDieta:          "http://" + myIP + ":8081/addDieta"
 };
 
 

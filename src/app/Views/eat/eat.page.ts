@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Resultado } from "../../models/resultado";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastController } from "@ionic/angular";
+import { UserService } from 'src/app/Services/user.service';
+import { Historia } from 'src/app/models/historia';
 
 @Component({
   selector: "app-eat",
@@ -14,18 +16,26 @@ export class EatPage implements OnInit {
   constructor(
     private active: ActivatedRoute,
     private router: Router,
-    private toast: ToastController
+    private toast: ToastController,
+    private service: UserService
   ) {
     this.active.params.subscribe(res => {
       this.alimento = <Resultado>res;
-      console.log(this.alimento);
     });
 
     this.valor = 0;
   }
 
   comer() {
-    if(this.valor != 0 ) this.hasComido();
+    if(this.valor != 0 ){
+      let historia:Historia;
+      this.service.addHistoria(this.alimento.id, this.valor).subscribe( result =>{
+        historia = result;
+        this.service.pushHistoria(historia);
+      });
+
+      this.hasComido();
+    } 
   }
 
   backProduct() {

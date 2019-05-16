@@ -3,6 +3,8 @@ import { user } from "../models/user";
 import { UserService } from "../Services/user.service";
 import { NavController } from "@ionic/angular";
 import { ProductService } from '../Services/product.service';
+import { Historia } from '../models/historia';
+import { Propiedad } from '../models/propiedad';
 
 @Component({
   selector: "app-profile",
@@ -11,21 +13,25 @@ import { ProductService } from '../Services/product.service';
 })
 export class ProfilePage implements OnInit {
 
-  ejemplos : any[];
-
   show: boolean;
   usuario: user;
+  historias: Historia[];
+  propiedades: Propiedad[];
   constructor(private userServices: UserService,
      private nav: NavController,
      private productServices: ProductService) {
     this.usuario = this.userServices.getUser();
-    this.show = false;
-    this.ejemplos = [{nombre:'Sodio', valor :15},{nombre:'Calorias', valor :30},{nombre:'Proteinas', valor :25}];
-    console.log(this.productServices.getNamesPropiedades());
+    this.historias = this.userServices.getHistorias();
+    this.propiedades = this.productServices.getNamesPropiedades();
+    console.log(this.historias);
     
+    this.show = false;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.propiedades = this.productServices.getNamesPropiedades();
+    
+  }
 
   ionViewWillEnter() {
     setTimeout(() => {

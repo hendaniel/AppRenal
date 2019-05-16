@@ -40,29 +40,11 @@
       <ion-title>Valor Nutricional</ion-title>
     </ion-item>
 
-    <ion-list lines="none">
+    <ion-list *ngFor="let propiedad of propiedades; let i = index" lines="none">
       <ion-item >
-        <ion-label>{{propiedades[0].nombre}}</ion-label>
+        <ion-label>{{propiedad.nombre}}</ion-label>
         <ion-badge color="primary" class="badge"
-          >{{ product.propiedades[0] }} {{propiedades[0].unidad}}</ion-badge
-        >
-      </ion-item>
-      <ion-item>
-        <ion-label>{{propiedades[1].nombre}}</ion-label>
-        <ion-badge color="primary" class="badge"
-          >{{ product.propiedades[1] }} {{propiedades[1].unidad}}</ion-badge
-        >
-      </ion-item>
-      <ion-item>
-        <ion-label>{{propiedades[12].nombre}}</ion-label>
-        <ion-badge color="primary" class="badge"
-          >{{ product.propiedades[12] }} {{propiedades[12].unidad}}</ion-badge
-        >
-      </ion-item>
-      <ion-item>
-        <ion-label>{{propiedades[3].nombre}}</ion-label>
-        <ion-badge color="primary" class="badge"
-          >{{ product.propiedades[3] }} {{propiedades[3].unidad}}</ion-badge
+          >{{ product.propiedades[i] }} {{propiedad.unidad}}</ion-badge
         >
       </ion-item>
     </ion-list>
