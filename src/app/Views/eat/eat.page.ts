@@ -33,7 +33,7 @@ export class EatPage implements OnInit {
         historia = result;
         this.service.pushHistoria(historia);
       });
-
+      this.router.navigate(['/product', this.alimento]);
       this.hasComido();
     } 
   }
@@ -45,7 +45,7 @@ export class EatPage implements OnInit {
   async hasComido() {
     const toast = await this.toast.create({
       message: "Has comido " + this.valor + ' gramos de ' + this.alimento.nombre + " con exito!",
-      duration: 2000
+      duration: 500
     });
     toast.present();
   }

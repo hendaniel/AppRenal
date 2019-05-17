@@ -46,19 +46,19 @@ export class LoginPage implements OnInit {
     if (this.correo == null || this.password == null) {
       const toast = await this.toastController.create({
         message: "Completa todos los campos",
-        duration: 2000
+        duration: 1000
       });
       toast.present();
     } else if (this.correo.trim() == "" || this.password.trim() == "") {
       const toast = await this.toastController.create({
         message: "Completa todos los campos",
-        duration: 2000
+        duration: 1000
       });
       toast.present();
     }else {
       const toast = await this.toastController.create({
         message: "Verifica el correo o la contraseña",
-        duration: 2000
+        duration: 1000
       });
       toast.present();
     }

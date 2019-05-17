@@ -62,7 +62,7 @@ export class RegisterPage implements OnInit {
   async registrado() {
     const toast = await this.toastController.create({
       message: "Registrado con exito!",
-      duration: 2000
+      duration: 500
     });
     toast.present();
   }
@@ -70,7 +70,7 @@ export class RegisterPage implements OnInit {
   async errorRegistro() {
     const toast = await this.toastController.create({
       message: "No se ha podido registrar, intente de nuevo.",
-      duration: 2000
+      duration: 1000
     });
     toast.present();
   }
@@ -78,7 +78,7 @@ export class RegisterPage implements OnInit {
   async errorContrasena() {
     const toast = await this.toastController.create({
       message: "Las contraseñas no coinciden.",
-      duration: 2000
+      duration: 1000
     });
     toast.present();
   }
