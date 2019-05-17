@@ -24,28 +24,47 @@
     </div>
 
     <div class="box">
-      <h4 class="titulos" style="text-align: center;"
-        >Estadistica Nutricional</h4>
+      <h4 class="titulos" style="text-align: center;">
+        Estadistica Nutricional
+      </h4>
 
-    <ion-list *ngFor="let propiedad of propiedades; let i = index" lines="none">
-      <ion-item >
-        <ion-label>{{propiedad.nombre}}</ion-label>
-        <ion-badge color="primary" class="badge"
-          >{{ usuario.propiedades[i].toFixed(2) }} {{propiedad.unidad}}</ion-badge
+      <div *ngIf="mostrar()">
+        <ion-list
+          *ngFor="let propiedad of propiedades; let i = index"
+          lines="none"
         >
-      </ion-item>
-    </ion-list>
+          <ion-item>
+            <ion-label>{{ propiedad.nombre }}</ion-label>
+            <ion-badge color="primary" class="badge"
+              >{{ usuario.propiedades[i].toFixed(2) }}
+              {{ propiedad.unidad }}</ion-badge
+            >
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div *ngIf="!mostrar()">
+        <ion-item>
+          <ion-label style="text-align: center; ">Come algo primero.</ion-label>
+        </ion-item>
+      </div>
     </div>
 
     <div class="box">
-      <h4 class="titulos" style="text-align: center;"
-        >Historial</h4
-      >
+      <h4 class="titulos" style="text-align: center;">Historial</h4>
 
-      <ion-list *ngFor="let historia of historias" lines="none" class="subtitulos">
+      <ion-list
+        *ngFor="let historia of historias"
+        lines="none"
+        class="subtitulos"
+      >
         <ion-item>
-          <ion-label class="subtitulos">{{ historia.time.toLocaleString() }}</ion-label>
-          <ion-label class="subtitulos">{{ historia.alimento.nombre }}</ion-label>
+          <ion-label class="subtitulos">{{
+            historia.time.toLocaleString()
+          }}</ion-label>
+          <ion-label class="subtitulos">{{
+            historia.alimento.nombre
+          }}</ion-label>
           <ion-badge color="primary" class="subtitulos badge">{{
             historia.cantidad
           }}</ion-badge>

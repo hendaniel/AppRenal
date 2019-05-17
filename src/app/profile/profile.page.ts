@@ -23,25 +23,25 @@ export class ProfilePage implements OnInit {
     this.usuario = this.userServices.getUser();
     this.historias = this.userServices.getHistorias();
     this.propiedades = this.productServices.getNamesPropiedades();
-    console.log(this.historias);
-    
     this.show = false;
   }
 
   ngOnInit() {
     this.propiedades = this.productServices.getNamesPropiedades();
-    
-  }
-
-  ionViewWillEnter() {
+    this.historias = this.userServices.getHistorias();
     setTimeout(() => {
       this.show = true;
     }, 2000);
   }
 
+
   logout() {
     console.log("logout Clicked");
     this.userServices.logout();
     this.nav.navigateRoot("/login");
+  }
+
+  mostrar(){
+    return this.usuario.propiedades.length > 0;
   }
 }
