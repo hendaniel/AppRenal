@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'comparation', loadChildren: './Views/comparation/comparation.module#ComparationPageModule',  canActivate: [NeedAuthGuard] },
   { path: 'eat', loadChildren: './Views/eat/eat.module#EatPageModule',  canActivate: [NeedAuthGuard] },
   { path: 'login', loadChildren: './Views/login/login.module#LoginPageModule' },
-  { path: 'register', loadChildren: './Views/register/register.module#RegisterPageModule' },
+  { path: 'register', loadChildren: './Views/register/register.module#RegisterPageModule' },  { path: 'new-dieta', loadChildren: './Views/new-dieta/new-dieta.module#NewDietaPageModule' },
+
 
 
 

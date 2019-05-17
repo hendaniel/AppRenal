@@ -24,11 +24,10 @@ export class ProfilePage implements OnInit {
     this.historias = this.userServices.getHistorias();
     this.propiedades = this.productServices.getNamesPropiedades();
     this.show = false;
+    console.log(this.usuario);
   }
 
   ngOnInit() {
-    this.propiedades = this.productServices.getNamesPropiedades();
-    this.historias = this.userServices.getHistorias();
     setTimeout(() => {
       this.show = true;
     }, 2000);
