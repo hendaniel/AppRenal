@@ -1,4 +1,5 @@
 import { Dieta } from './dieta';
+import { Historia } from './historia';
 
 export class user{
     id: number;
@@ -7,4 +8,5 @@ export class user{
     fechaNacimiento : string;
     dietas          : Dieta[];
     propiedades     : number[];
+    historias       : Historia[];
 }

@@ -12,7 +12,7 @@ import { Dieta } from '../models/dieta';
 export class UserService {
 
   private usuario: user;
-  private historias: Array<Historia>;
+ // private historias: Array<Historia>;
   private logged: boolean;
   private logToken = ">.<";
 
@@ -22,7 +22,11 @@ export class UserService {
    setUser(usuario: user){
     this.usuario = usuario;
     this.usuario.propiedades = new Array<number>();
-    this.setHistorias();
+    //this.setHistorias();
+    this.usuario.historias.forEach(e => {
+      e.time = new Date(e.time);
+      this.comer(e);
+    });
     this.logged = true;
     localStorage.setItem(this.logToken, JSON.stringify(this.usuario));
   }
@@ -37,25 +41,39 @@ export class UserService {
 
    logout(){
      localStorage.removeItem(this.logToken);
+     this.usuario = null;
+     //this.historias = null;
      this.logged = false;
    }
 
    restoreUser(){
      this.usuario = JSON.parse(localStorage.getItem(this.logToken));
-     this.usuario.propiedades = new Array<number>();
-     this.usuario.dietas.forEach(e =>{
-       let s: string = JSON.stringify(e.propiedad);
-       e.propiedad = JSON.parse(JSON.parse(s));
-     })
-     console.log(this.usuario);
-     
-     this.setHistorias();
+    
+     this.getUserById(this.usuario.id).subscribe(result => {
+       this.usuario = result;
+       this.usuario.propiedades = new Array<number>();
+       this.usuario.dietas.forEach(e =>{
+         let s: string = JSON.stringify(e.propiedad);
+         e.propiedad = JSON.parse(JSON.parse(s));
+       })
+       console.log(this.usuario);
+       
+       //this.setHistorias();
+       this.usuario.historias.forEach(e => {
+        e.time = new Date(e.time);
+        this.comer(e);
+      });
+     });
    }
 
+   getUserById(id: number):Observable<user>{
+    const body = new HttpParams().set('id', id +"");
+    return this.http.post<user>(environment.urlGetUserById, body);
+   }
    getHistorias(): Historia[]{
-     return this.historias;
+     return this.usuario.historias;
    }
-
+/*
    setHistorias(){
     this.getHistoriasService().subscribe(result => {
       result.forEach(e => {
@@ -63,8 +81,11 @@ export class UserService {
         this.comer(e);
       });
       this.historias = result;
+      console.log(this.historias);
+      
     });
    }
+   */
 
    getUser(): user {
      return this.usuario;
@@ -95,9 +116,9 @@ export class UserService {
 
    pushHistoria(historia: Historia){
     historia.time = new Date(historia.time);
-    this.historias.unshift(historia);
+    this.usuario.historias.unshift(historia);
     this.comer(historia);
-    console.log(this.historias);
+    //console.log(this.historias);
     
    }
 

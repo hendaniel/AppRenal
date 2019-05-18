@@ -8,8 +8,9 @@
 
 
 //Para probar en movil tambien, cambiar localhost por la IP actual del PC.
-const myIP = "10.10.4.172";
+//const myIP = "10.10.4.172";
 // const myIP = "192.168.224.109";
+const myIP = "localhost";
 
 export const environment = {
   production: false,
@@ -22,7 +23,8 @@ export const environment = {
   urlGetPropiedades:    "http://" + myIP + ":8081/getAllPropiedades",
   urlAddHistoria:       "http://" + myIP + ":8081/addHistoria",
   urlGetHistorias:      "http://" + myIP + ":8081/getHistoriaById",
-  urlAddDieta:          "http://" + myIP + ":8081/addDieta"
+  urlAddDieta:          "http://" + myIP + ":8081/addDieta",
+  urlGetUserById:       "http://" + myIP + ":8081/getUserById"
 };
 
 

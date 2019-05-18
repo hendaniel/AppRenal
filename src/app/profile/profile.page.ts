@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy, DoCheck, OnChanges, SimpleChanges, AfterViewInit, AfterViewChecked, AfterContentInit } from "@angular/core";
 import { user } from "../models/user";
 import { UserService } from "../Services/user.service";
 import { NavController } from "@ionic/angular";
@@ -11,7 +11,7 @@ import { Propiedad } from '../models/propiedad';
   templateUrl: "./profile.page.html",
   styleUrls: ["./profile.page.scss"]
 })
-export class ProfilePage implements OnInit {
+export class ProfilePage implements OnInit{
 
   show: boolean;
   usuario: user;
@@ -20,9 +20,10 @@ export class ProfilePage implements OnInit {
   constructor(private userServices: UserService,
      private nav: NavController,
      private productServices: ProductService) {
-    this.usuario = this.userServices.getUser();
-    this.historias = this.userServices.getHistorias();
-    this.propiedades = this.productServices.getNamesPropiedades();
+       this.usuario = new user();
+       this.usuario.propiedades = new Array();
+       this.historias = new Array();
+
     this.show = false;
     console.log(this.usuario);
   }
@@ -31,11 +32,29 @@ export class ProfilePage implements OnInit {
     setTimeout(() => {
       this.show = true;
     }, 2000);
+
+    console.log("INICIA");
   }
+  
+  ionViewWillEnter(){
+    this.usuario = this.userServices.getUser();
+    this.historias = this.userServices.getHistorias();
+    this.propiedades = this.productServices.getNamesPropiedades();
+    console.log("DOCheck");
+  }
+
+  ngOnDestroy(){
+    console.log("Finaliza");
+  }
+
 
 
   logout() {
     console.log("logout Clicked");
+    this.usuario = new user();
+    this.usuario.dietas = new Array();
+    this.usuario.propiedades = new Array();
+    this.historias = new Array();
     this.userServices.logout();
     this.nav.navigateRoot("/login");
   }
