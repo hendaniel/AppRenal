@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/Services/user.service";
 import { ToastController, NavController } from "@ionic/angular";
-import { DatePipe } from '@angular/common';
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: "app-register",
@@ -14,7 +14,7 @@ export class RegisterPage implements OnInit {
   fecha: Date;
   contrasena: string;
   contrasenaDos: string;
-  hide : boolean;
+  hide: boolean;
 
   constructor(
     public services: UserService,
@@ -36,9 +36,13 @@ export class RegisterPage implements OnInit {
     // console.log(this.fecha);
     //falta hacer validaciones de los campos
     let f = this.datepipe.transform(this.fecha, "d/MM/yyyy").toString();
-    
-    
-    if (this.contrasena === this.contrasenaDos) {
+    if (this.contrasena != this.contrasenaDos) {
+      this.errorContrasenaCoinciden();
+      console.error("ERROR CONTRASEÑA");
+    } else if (this.contrasena.trim() == "") {
+      this.errorContrasenaNula();
+      console.error("ERROR CONTRASEÑA");
+    } else {
       this.services
         .registro(this.nombre, this.correo, f, this.contrasena)
         .subscribe(result => {
@@ -53,9 +57,6 @@ export class RegisterPage implements OnInit {
             console.error("ERROR AL REGISTRAR");
           }
         });
-    } else {
-      this.errorContrasena();
-      console.error("ERROR CONTRASEÑA");
     }
   }
 
@@ -75,9 +76,17 @@ export class RegisterPage implements OnInit {
     toast.present();
   }
 
-  async errorContrasena() {
+  async errorContrasenaCoinciden() {
     const toast = await this.toastController.create({
       message: "Las contraseñas no coinciden.",
+      duration: 1000
+    });
+    toast.present();
+  }
+
+  async errorContrasenaNula() {
+    const toast = await this.toastController.create({
+      message: "La contraseña está vacia",
       duration: 1000
     });
     toast.present();
