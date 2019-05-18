@@ -1,0 +1,39 @@
+.range {
+  --bar-height: 10px;
+  --bar-border-radius: 5px;
+  --knob-background: var(--ion-color-primary);
+}
+
+.num {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.tam {
+  text-align: center;
+  align-content: center;
+  align-self: center;
+  font-size: 18px;
+}
+
+
+.comer{
+    --background: transparent;
+    --color: var(--ion-color-primary);
+    --border-color: var(--ion-color-primary);
+    --border-width : 2px;
+
+    --background-activated:var(--ion-color-primary);
+    --color-activated : white;
+
+    --box-shadow: 0px;
+
+    --border-radius : 10px;
+    margin: 15px;
+    font-size: 15px;
+}
+
+.center {
+    width: 100%;
+    text-align: center;
+}

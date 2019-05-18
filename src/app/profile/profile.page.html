@@ -1,63 +1,75 @@
 <ion-header no-border>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="light">
     <ion-buttons slot="primary">
-      <ion-button  (click)="logout()">
-        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="exit"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Mi Cuenta</ion-title>
+    <ion-title class="titulos">Mi Cuenta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div>
-    <ion-card color="primary">
-      <div>
-        <ion-avatar>
-          <ion-img
-            src="https://i0.wp.com/ayuntamientopinar.com/wp-content/uploads/2017/06/simbolo-de-usuario-negro-macho_318-60703.jpg?resize=300%2C300"
-          ></ion-img>
-        </ion-avatar>
-        <ion-label name="user">{{usuario.nombre}}</ion-label>
-      </div>
-    </ion-card>
-    <ion-item>
-      <ion-title>Estadistica Nutricional</ion-title>
-    </ion-item>
+  <div class="subtitulos">
+    <div class="photo">
+      <ion-avatar *ngIf="show === true" class="avatar">
+        <ion-img
+          src="https://i0.wp.com/ayuntamientopinar.com/wp-content/uploads/2017/06/simbolo-de-usuario-negro-macho_318-60703.jpg?resize=300%2C300"
+        ></ion-img>
+      </ion-avatar>
+      <ion-avatar *ngIf="show === false" class="avatar">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label name="user" class="titulos">{{ usuario.nombre }}</ion-label>
+    </div>
 
-    <ion-list lines="none">
-      <ion-item>
-        <ion-label>Sodio</ion-label>
-        <ion-badge color="primary" class="badge">1 %</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Potasio</ion-label>
-        <ion-badge color="primary" class="badge">1 %</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Azucar</ion-label>
-        <ion-badge color="primary" class="badge">1 %</ion-badge>
-      </ion-item>
-      <ion-item>
-        <ion-label>Calorias</ion-label>
-        <ion-badge color="primary" class="badge">1 %</ion-badge>
-      </ion-item>
-    </ion-list>
-    <ion-item>
-      <ion-title>Historial</ion-title>
-    </ion-item>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          Papas
-        </ion-col>
-        <ion-col>
-          Feb - 15 - 2019
-        </ion-col>
-        <ion-col>
-          Bueno
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <div class="box">
+      <h4 class="titulos" style="text-align: center;">
+        Estadistica Nutricional
+      </h4>
+
+      <div *ngIf="mostrar()">
+        <ion-list
+          *ngFor="let propiedad of propiedades; let i = index"
+          lines="none"
+        >
+          <ion-item>
+            <ion-label>{{ propiedad.nombre }}</ion-label>
+            <ion-badge color="primary" class="badge"
+              >{{ usuario.propiedades[i].toFixed(2) }}
+              {{ propiedad.unidad }}</ion-badge
+            >
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div *ngIf="!mostrar()">
+        <ion-item>
+          <ion-label style="text-align: center; ">Come algo primero.</ion-label>
+        </ion-item>
+      </div>
+    </div>
+
+    <div class="box">
+      <h4 class="titulos" style="text-align: center;">Historial</h4>
+
+      <ion-list
+        *ngFor="let historia of historias"
+        lines="none"
+        class="subtitulos"
+      >
+        <ion-item>
+          <ion-label class="subtitulos">{{
+            historia.time.toLocaleString()
+          }}</ion-label>
+          <ion-label class="subtitulos">{{
+            historia.alimento.nombre
+          }}</ion-label>
+          <ion-badge color="primary" class="subtitulos badge">{{
+            historia.cantidad
+          }}</ion-badge>
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
 </ion-content>

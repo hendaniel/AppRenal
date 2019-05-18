@@ -12,8 +12,11 @@ const routes: Routes = [
   { path: 'habit', loadChildren: './Views/habit/habit.module#HabitPageModule',  canActivate: [NeedAuthGuard] },
   { path: 'list-compare', loadChildren: './Views/list-compare/list-compare.module#ListComparePageModule',  canActivate: [NeedAuthGuard] },
   { path: 'comparation', loadChildren: './Views/comparation/comparation.module#ComparationPageModule',  canActivate: [NeedAuthGuard] },
+  { path: 'eat', loadChildren: './Views/eat/eat.module#EatPageModule',  canActivate: [NeedAuthGuard] },
   { path: 'login', loadChildren: './Views/login/login.module#LoginPageModule' },
-  { path: 'register', loadChildren: './Views/register/register.module#RegisterPageModule' },
+  { path: 'register', loadChildren: './Views/register/register.module#RegisterPageModule' },  { path: 'new-dieta', loadChildren: './Views/new-dieta/new-dieta.module#NewDietaPageModule' },
+
+
 
 
 

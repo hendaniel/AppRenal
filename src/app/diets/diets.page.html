@@ -1,9 +1,42 @@
 <ion-header no-border>
-  <ion-toolbar color="primary">
-    <ion-title>Mis Dietas</ion-title>
+  <ion-toolbar color="light">
+    <ion-title class="titulos">Mis Dietas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <h4 class="subtitulos" style="text-align: center;">En construcción...</h4>
 
+  <ion-card *ngFor="let dieta of dietas">
+    <ion-card-header>
+      <ion-card-title>{{dieta.propiedad.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div style="width: 100%"></div>
+      <ion-label>Meta: {{dieta.meta}} </ion-label>
+      <ion-label slot="end"> {{dieta.propiedad.unidad}} </ion-label>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  
+  <ion-card *ngFor="let item of [1,1,1,1]">
+    <ion-card-content>
+      <ion-thumbnail slot="start" style="width: 100%; height: 50px;">
+        <ion-skeleton-text
+          animated
+          style="width: 100%"
+        ></ion-skeleton-text>
+      </ion-thumbnail>
+      <!-- GG -->
+      <div style="text-align: center;">
+        <ion-spinner name="dots" style="--color:red;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:blue;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:yellow;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:gray;"></ion-spinner>
+        <ion-spinner name="dots" style="--color:green;"></ion-spinner>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

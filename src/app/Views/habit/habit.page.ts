@@ -5,11 +5,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './habit.page.html',
   styleUrls: ['./habit.page.scss'],
 })
-export class HabitPage implements OnInit {
+export class HabitPage {
 
-  constructor() { }
+  data: any;
+  constructor() {}
 
-  ngOnInit() {
+  ionViewWillEnter() {
+    setTimeout(() => {
+      this.data = {
+        'heading': 'Normal text',
+        'para1': 'Lorem ipsum dolor sit amet, consectetur',
+        'para2': 'adipiscing elit.'
+      };
+    }, 2000);
   }
-
 }

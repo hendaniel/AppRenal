@@ -64,5 +64,14 @@ export class ListComparePage implements OnInit {
     }
   }
 
+  backProduct() {
+    var reg = new Resultado();
+    reg.id = this.ids.id_uno;
+    reg.nombre = this.ids.nombre_uno;
+    reg.categoria = this.ids.categoria_uno;
+    reg.tipo = this.ids.tipo_uno;
+    return this.router.navigate(['product', reg]);
+  }
+
   ngOnInit() {}
 }

@@ -13,15 +13,17 @@ export class SearchPage implements OnInit {
   textSearch = "";
 
   constructor(private productService: ProductService, private router: Router) {
-    if(productService.getListNameProducts() == null){
+    if(this.productService.getListNameProducts() == null){
       this.productService.getNamesProducts().subscribe(resp => {
-        this.products = resp;
+        setTimeout(() => { this.products = resp; }, 1000);
         this.productService.setListNameProducts(resp);
       });
     }
     else{
       this.products = productService.getListNameProducts();
     }
+
+    
   }
 
   searchProduct(event) {
@@ -30,7 +32,7 @@ export class SearchPage implements OnInit {
   }
 
   viewProduct(product: Resultado) {
-    this.router.navigate(["/product", product], {skipLocationChange: false,  replaceUrl: true});
+    this.router.navigate(["/product", product]);
   }
 
   ngOnInit() {}

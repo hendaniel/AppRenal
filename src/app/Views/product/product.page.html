@@ -1,9 +1,9 @@
-<ion-header>
-  <ion-toolbar color="primary" no-border>
-    <ion-title> {{ product.nombre }}</ion-title>
+<ion-header no-border>
+  <ion-toolbar color="light" no-border>
+    <ion-title class="titulos">{{ product.nombre }}</ion-title>
     <ion-buttons slot="primary">
-      <ion-button (click)="comparar(product)" >
-        <ion-label> Comparar </ion-label>
+      <ion-button (click)="comparar(product)" class="boton" fill="outline" shape="round">
+        <ion-label class="subtitulos"> Comparar </ion-label>
       </ion-button>
     </ion-buttons>
 
@@ -21,13 +21,13 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
-      <ion-img
-        src="data:image/png;base64,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"
-      ></ion-img>
+      <ion-thumbnail style="height: 100px; width: 100px; text-align: center; margin: auto;">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
     </ion-card-content>
   </ion-card>
 
-  <div>
+  <div> 
     <ion-item>
       <ion-label>Categoria</ion-label>
       <ion-badge color="warn" class="badge">{{ product.categoria }}</ion-badge>
@@ -40,31 +40,19 @@
       <ion-title>Valor Nutricional</ion-title>
     </ion-item>
 
-    <ion-list lines="none">
-      <ion-item>
-        <ion-label>Sodio</ion-label>
+    <ion-list *ngFor="let propiedad of propiedades; let i = index" lines="none">
+      <ion-item >
+        <ion-label>{{propiedad.nombre}}</ion-label>
         <ion-badge color="primary" class="badge"
-          >{{ product.sodio }} %</ion-badge
-        >
-      </ion-item>
-      <ion-item>
-        <ion-label>Potasio</ion-label>
-        <ion-badge color="primary" class="badge"
-          >{{ product.potasio }} %</ion-badge
-        >
-      </ion-item>
-      <ion-item>
-        <ion-label>Azucar</ion-label>
-        <ion-badge color="primary" class="badge"
-          >{{ product.proteinas }} %</ion-badge
-        >
-      </ion-item>
-      <ion-item>
-        <ion-label>Calorias</ion-label>
-        <ion-badge color="primary" class="badge"
-          >{{ product.calorias }} %</ion-badge
+          >{{ product.propiedades[i] }} {{propiedad.unidad}}</ion-badge
         >
       </ion-item>
     </ion-list>
   </div>
+
+  <div style="width: 100%; text-align: center; margin: 5px;">
+  <ion-button (click)="comer(product)" class="boton" fill="outline" shape="round">
+    <ion-label class="subtitulos"> Comer </ion-label>
+  </ion-button>
+</div>
 </ion-content>

@@ -8,18 +8,21 @@
 
 
 //Para probar en movil tambien, cambiar localhost por la IP actual del PC.
-const myIP = "localhost";
+const myIP = "10.10.4.172";
 // const myIP = "192.168.224.109";
 
 export const environment = {
   production: false,
-  urlGetAllProducts: "http://" + myIP + ":8081/getAlimentoName",
-  urlGetProductoByID: "http://" + myIP + ":8081/getAlimentoById",
-  urlCompareAliment: "http://" + myIP + ":8081/compararAlimentos",
-  urlLogin: "http://" + myIP + ":8081/validateUser",
-  urlRegistro: "http://" + myIP + ":8081/addUser",
-  urlHabitos : "http://" + myIP + ":8081/getRandomHabito"
-  
+  urlGetAllProducts:    "http://" + myIP + ":8081/getAlimentoName",
+  urlGetProductoByID:   "http://" + myIP + ":8081/getAlimentoById",
+  urlCompareAliment:    "http://" + myIP + ":8081/compararAlimentos",
+  urlLogin:             "http://" + myIP + ":8081/validateUser",
+  urlRegistro:          "http://" + myIP + ":8081/addUser",
+  urlHabitos :          "http://" + myIP + ":8081/getRandomHabito",
+  urlGetPropiedades:    "http://" + myIP + ":8081/getAllPropiedades",
+  urlAddHistoria:       "http://" + myIP + ":8081/addHistoria",
+  urlGetHistorias:      "http://" + myIP + ":8081/getHistoriaById",
+  urlAddDieta:          "http://" + myIP + ":8081/addDieta"
 };
 
 

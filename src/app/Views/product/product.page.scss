@@ -21,3 +21,27 @@ p {
   --padding-start: 15px;
   --padding-top: 10px;
 }
+
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+.titulos {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+
+.subtitulos {
+    font-family: "Poppins", sans-serif;
+    font-size: 19px;
+    text-transform: capitalize;
+  }
+
+.boton{
+  --border-width: 1px;
+  --border-color: gray;
+  margin: 5px;
+
+}
+
+.hi {
+  font-family: var(--ion-font-family);
+}

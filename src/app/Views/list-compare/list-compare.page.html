@@ -1,16 +1,13 @@
 <ion-header no-border>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="light">
     <ion-title>Comparar con...</ion-title>
     <ion-buttons slot="start">
-      <ion-button
-        [routerLink]="['/product']"
-        routerLinkActive="router-link-active"
-      >
+      <ion-button (click)="backProduct()">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="light">
     <ion-searchbar
       placeholder="Buscar..."
       animated
@@ -35,10 +32,15 @@
       *ngFor="let product of products | filter: textSearch"
       (click)="compare(product)"
     >
-      <ion-label>
-        <h4>{{ product.nombre }} {{ product.tipo }}</h4>
-        <h4>{{ product.categoria }}</h4>
+      <ion-label class="listaNombres">
+        <p>
+          <b>{{ product.nombre }}</b> <br />
+          Tipo: {{ product.tipo }}
+          <br />
+          Categoria: {{ product.categoria | uppercase }}
+        </p>
       </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
+

@@ -1,11 +1,8 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header no-border>
+  <ion-toolbar color="light">
     <ion-title>Has comparado</ion-title>
     <ion-buttons slot="start">
-        <ion-button
-          [routerLink]="['/list-compare']"
-          routerLinkActive="router-link-active"
-        >
+        <ion-button (click)="backList()">
           <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
         </ion-button>
       </ion-buttons>
