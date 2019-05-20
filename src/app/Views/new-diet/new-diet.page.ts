@@ -38,24 +38,23 @@ export class NewDietPage implements OnInit {
   }
 
  async crearDieta() {
-    if (this.dieta.meta != 0 && this.dieta.propiedad != null) {
+    if (this.dieta.meta != null && this.dieta.meta != 0 && this.dieta.propiedad != null) {
       await this.userService.addDietaService(this.dieta).subscribe(res => {
         this.userService.pushDieta(res);
         this.mensaje("Dieta agregada con exito!");
         this.router.navigate(["/diets"]);
       });
     } else {
-      this.mensaje("Error, verifica los campos.");
+      this.mensaje("La meta debe ser mayor que cero.");
     }
   }
 
   async mensaje(mensaje: string) {
     const toast = await this.toast.create({
       message: mensaje,
-      duration: 500,
-      position: "middle",
+      duration: 1000,
+      position: "top",
       animated: true,
-      translucent: true
     });
     toast.present();
   }

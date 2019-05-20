@@ -62,12 +62,12 @@
           <ion-label class="subtitulos">{{
             historia.time.toLocaleString()
           }}</ion-label>
-          <ion-label class="subtitulos">{{
+          <ion-label>{{
             historia.alimento.nombre
           }}</ion-label>
-          <ion-badge color="primary" class="subtitulos badge">{{
-            historia.cantidad
-          }}</ion-badge>
+          <ion-badge color="primary" class="badge"
+            >{{ historia.cantidad }} g</ion-badge
+          >
         </ion-item>
       </ion-list>
     </div>
