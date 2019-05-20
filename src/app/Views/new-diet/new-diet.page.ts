@@ -18,14 +18,14 @@ export class NewDietPage implements OnInit {
   listaPropiedades: Propiedad[];
 
   constructor(
-    private uService: UserService,
+    private userService: UserService,
     private router: Router,
     private toast: ToastController,
-    private pService: ProductService
+    private productService: ProductService
   ) {
-    this.usuario = this.uService.getUser();
+    this.usuario = this.userService.getUser();
     this.dieta = new Dieta();
-    this.listaPropiedades = this.pService.getNamesPropiedades();
+    this.listaPropiedades = this.productService.getNamesPropiedades();
     this.listaPropiedades.sort((n1, n2) => {
       if (n1.nombre > n2.nombre) {
         return 1;
@@ -39,8 +39,8 @@ export class NewDietPage implements OnInit {
 
  async crearDieta() {
     if (this.dieta.meta != 0 && this.dieta.propiedad != null) {
-      await this.uService.addDietaService(this.dieta).subscribe(res => {
-        this.uService.pushDieta(<Dieta>res);
+      await this.userService.addDietaService(this.dieta).subscribe(res => {
+        this.userService.pushDieta(res);
         this.mensaje("Dieta agregada con exito!");
         this.router.navigate(["/diets"]);
       });

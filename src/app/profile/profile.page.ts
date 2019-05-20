@@ -40,7 +40,7 @@ export class ProfilePage implements OnInit{
     this.usuario = this.userServices.getUser();
     this.historias = this.userServices.getHistorias();
     this.propiedades = this.productServices.getNamesPropiedades();
-    console.log("DOCheck");
+    console.log(this.usuario);
   }
 
   ngOnDestroy(){

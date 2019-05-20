@@ -13,10 +13,10 @@ export class DietsPage implements OnInit {
   dietas: Dieta[];
   usuario: user;
   constructor(private service: UserService, private nav: NavController) {
-    console.log(this.service.getUser());
+    this.usuario = new user();
+    this.dietas = new Array();
     this.usuario = this.service.getUser();
     this.dietas = this.usuario.dietas;
-    console.log(this.dietas);
   }
 
   dietasExist(): boolean {
