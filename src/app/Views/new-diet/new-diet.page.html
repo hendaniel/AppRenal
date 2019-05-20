@@ -1,0 +1,26 @@
+<ion-header no-border>
+  <ion-toolbar color="light">
+    <ion-title>Nueva dieta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-item>
+    <ion-label>Propiedades</ion-label>
+    <ion-select multiple="false" placeholder="Selecciona una" [(ngModel)]="dieta.propiedad" >
+      <ion-select-option *ngFor="let prop of listaPropiedades" [value]="prop">{{prop.nombre}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-label>Meta</ion-label>
+ <ion-input *ngIf="dieta.propiedad != null" type="number" placeholder="Colocate una meta" [(ngModel)]="dieta.meta"></ion-input>
+ <ion-input [disabled]="true" *ngIf="dieta.propiedad == null" type="number" placeholder="Elije una propiedad"></ion-input>
+  
+  
+
+  <ion-button (click)="crearDieta()">
+    Crear dieta
+  </ion-button>
+  
+</ion-content>

@@ -5,54 +5,47 @@
 </ion-header>
 
 <ion-content>
-  <div class="box">
-    <ion-grid fixed style="text-align: center;">
-      <ion-row>
-        <ion-col>
-          <ion-label style="font-size: 20px; font-weight: bold;"
-            >Calorias</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label style="font-weight: bold; font-size: 18px;">
-            Meta
-          </ion-label>
-          <br />
-          <ion-label> 500 + g </ion-label>
-        </ion-col>
-        <ion-col>
-          <ion-label style="font-weight: bold; font-size: 18px;">
-            Progreso
-          </ion-label>
-          <br />
-          <ion-label> {{ usuario.propiedades[0] }} + g</ion-label>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    <div style="margin: 0 20px;">
-      <ion-progress-bar style="height: 10px; border-radius: 4px;" color="primary" value="{{usuario.propiedades[0]/500}}"></ion-progress-bar>
+  <span *ngIf="dietasExist()">
+    <div class="box" *ngFor="let dieta of dietas">
+      <ion-grid fixed style="text-align: center;">
+        <ion-row>
+          <ion-col>
+            <ion-label style="font-size: 20px; font-weight: bold;">{{
+              dieta.propiedad.nombre
+            }}</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label style="font-weight: bold; font-size: 18px;">
+              Meta
+            </ion-label>
+            <br />
+            <ion-label> {{dieta.meta + ' ' + dieta.propiedad.unidad}} </ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label style="font-weight: bold; font-size: 18px;">
+              Progreso
+            </ion-label>
+            <br />
+            <ion-label> {{ usuario.propiedades[0] + ' ' + dieta.propiedad.unidad}}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div style="margin: 0 20px;">
+        <ion-progress-bar
+          style="height: 10px; border-radius: 4px;"
+          color="primary"
+          value="{{ usuario.propiedades[0] / dieta.meta }}"
+        ></ion-progress-bar>
+      </div>
     </div>
-  </div>
-
-  <div class="box" *ngIf="dietasExist()">
-    <ion-card *ngFor="let dieta of dietas">
-      <ion-card-header>
-        <ion-card-title>{{ dieta.propiedad.nombre }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <div style="width: 100%"></div>
-        <ion-label>Meta: {{ dieta.meta }} </ion-label>
-        <ion-label slot="end"> {{ dieta.propiedad.unidad }} </ion-label>
-      </ion-card-content>
-    </ion-card>
-  </div>
+  </span>
 
   <div class="box" *ngIf="!dietasExist()" style="text-align: center;">
     <span class="subtitulos">¡No tienes ninguna dieta, agrega una!</span>
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-button class="button" fill="outline">
+    <ion-button class="button" (click)="nuevaDieta()">
       <ion-label
         >Nueva Dieta <ion-icon slot="end" name="add"></ion-icon
       ></ion-label>
