@@ -36,11 +36,11 @@
       <ion-title>Valor Nutricional</ion-title>
     </ion-item>
 
-    <ion-list *ngFor="let propiedad of propiedades; let i = index" lines="none">
+    <ion-list *ngFor="let index of selection;" lines="none">
       <ion-item>
-        <ion-label>{{ propiedad.nombre }}</ion-label>
+        <ion-label>{{ propiedades[index].nombre }}</ion-label>
         <ion-badge color="primary" class="badge"
-          >{{ product.propiedades[i] }} {{ propiedad.unidad }}</ion-badge
+          >{{ product.propiedades[index] }} {{ propiedades[index].unidad }}</ion-badge
         >
       </ion-item>
     </ion-list>

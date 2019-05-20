@@ -9,4 +9,6 @@ export class user{
     dietas          : Dieta[];
     propiedades     : number[];
     historias       : Historia[];
+    indexPerfil     : Number[];
+    indexAlimento   : Number[];
 }

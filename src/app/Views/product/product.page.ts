@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ProductService } from "../../Services/product.service";
 import { Resultado } from "src/app/models/resultado";
 import { Propiedad } from 'src/app/models/propiedad';
+import { UserService } from 'src/app/Services/user.service';
 
 @Component({
   selector: "app-product",
@@ -14,11 +15,14 @@ export class ProductPage implements OnInit {
   public product: Product;
   public comp: Resultado;
   public propiedades: Array<Propiedad> ;
+  public selection: Array<Number>;
   constructor(
     private prodService: ProductService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) {
+    this.selection = this.userService.getUser().indexAlimento;
     this.comp = new Resultado();
     this.prodService
       .getAliment(this.route.snapshot.paramMap.get("id"))
