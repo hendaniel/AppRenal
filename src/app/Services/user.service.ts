@@ -138,7 +138,7 @@ export class UserService {
     return this.http.post<Historia[]>(environment.urlGetHistorias, body);
    }
 
-   addDieta(dieta: Dieta){
+   pushDieta(dieta: Dieta){
     this.usuario.dietas.push(dieta);
    }
    addDietaService(dieta: Dieta): Observable<Dieta>{

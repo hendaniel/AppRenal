@@ -20,6 +20,10 @@ export class DietsPage implements OnInit {
     
    }
 
+   dietasExist(): boolean{
+     return this.dietas.length > 0;
+   }
+
   ngOnInit() {
   }
 
