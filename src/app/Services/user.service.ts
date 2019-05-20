@@ -5,6 +5,7 @@ import { environment } from "src/environments/environment";
 import { Historia } from '../models/historia';
 import { Observable } from 'rxjs';
 import { Dieta } from '../models/dieta';
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,25 +13,41 @@ import { Dieta } from '../models/dieta';
 export class UserService {
 
   private usuario: user;
- // private historias: Array<Historia>;
   private logged: boolean;
   private logToken = ">.<";
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private productService: ProductService) {
   }
+
 
    setUser(usuario: user){
     this.usuario = usuario;
     this.usuario.propiedades = new Array<number>();
-    //this.setHistorias();
+    this.productService.getNamesPropiedades().forEach(e =>{
+      this.usuario.propiedades.push(0.0);
+    });
+    
+    if(this.usuario.historias == null) this.usuario.historias = new Array();
+    if(this.usuario.dietas    == null) this.usuario.dietas = new Array();
     this.usuario.historias.forEach(e => {
       e.time = new Date(e.time);
       this.comer(e);
     });
+    this.usuario.dietas.forEach(e =>{
+        e.propiedad = JSON.parse(e.propiedad + "");
+    });
     this.logged = true;
-    localStorage.setItem(this.logToken, JSON.stringify(this.usuario));
+    localStorage.setItem(this.logToken, this.usuario.id  + "");
   }
-
+  
+  restoreUser(){
+    let id = JSON.parse(localStorage.getItem(this.logToken));
+   
+    this.getUserById(id).subscribe(result => {
+      this.setUser(result);
+    });
+  }
+  
    isLogin():boolean{
      if(!this.logged && localStorage.getItem(this.logToken) != null){
        this.restoreUser();
@@ -39,6 +56,7 @@ export class UserService {
      return this.logged;
    }
 
+
    logout(){
      localStorage.removeItem(this.logToken);
      this.usuario = null;
@@ -46,25 +64,6 @@ export class UserService {
      this.logged = false;
    }
 
-   restoreUser(){
-     this.usuario = JSON.parse(localStorage.getItem(this.logToken));
-    
-     this.getUserById(this.usuario.id).subscribe(result => {
-       this.usuario = result;
-       this.usuario.propiedades = new Array<number>();
-       this.usuario.dietas.forEach(e =>{
-         let s: string = JSON.stringify(e.propiedad);
-         e.propiedad = JSON.parse(JSON.parse(s));
-       })
-       console.log(this.usuario);
-       
-       //this.setHistorias();
-       this.usuario.historias.forEach(e => {
-        e.time = new Date(e.time);
-        this.comer(e);
-      });
-     });
-   }
 
    getUserById(id: number):Observable<user>{
     const body = new HttpParams().set('id', id +"");
@@ -124,10 +123,7 @@ export class UserService {
 
    comer(historia: Historia){
     var i = 0;
-    
     historia.alimento.propiedades.forEach(e =>{
-      if(this.usuario.propiedades.length == i)
-        this.usuario.propiedades.push(0.0);
       this.usuario.propiedades[i++] += historia.cantidad * e / 100.0;
     });
    }
@@ -138,7 +134,8 @@ export class UserService {
     return this.http.post<Historia[]>(environment.urlGetHistorias, body);
    }
 
-   addDieta(dieta: Dieta){
+   pushDieta(dieta: Dieta){
+    dieta.propiedad = JSON.parse(dieta.propiedad +"");
     this.usuario.dietas.push(dieta);
    }
    addDietaService(dieta: Dieta): Observable<Dieta>{
