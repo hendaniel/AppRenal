@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Resultado } from "../../models/resultado";
+import { Resultado, DosAlimentos } from "../../models/resultado";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastController } from "@ionic/angular";
 import { UserService } from 'src/app/Services/user.service';
@@ -38,6 +38,9 @@ export class EatPage implements OnInit {
     } 
   }
 
+  ionViewWillEnter(){
+    this.valor = 0;
+  }
   backProduct() {
     this.router.navigate(["/product", this.alimento]);
   }

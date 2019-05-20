@@ -3,7 +3,7 @@ import { UserService } from "../../Services/user.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { user } from "src/app/models/user";
 import { Dieta } from "../../models/dieta";
-import { ToastController } from "@ionic/angular";
+import { ToastController, NavController } from "@ionic/angular";
 import { Propiedad } from "../../models/propiedad";
 import { ProductService } from "../../Services/product.service";
 
@@ -44,12 +44,11 @@ export class NewDietPage implements OnInit {
   }
 
   ionViewWillEnter(){
-    
+    this.dieta = new Dieta();
     this.removeUsed();
     this.listaPropiedades.sort((x, y) => {
       return x.nombre.localeCompare(y.nombre+"");
     });
-    
   }
 
   async mensaje(mensaje: string) {

@@ -30,7 +30,8 @@ export class DietsPage implements OnInit {
     this.dietas = this.usuario.dietas;
     console.log(this.dietas);
   }
-  
+
+ 
 
   nuevaDieta() {
     return this.nav.navigateForward(["/new-diet"]);
