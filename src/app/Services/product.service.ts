@@ -20,7 +20,11 @@ export class ProductService {
   
     this.getPropiedades().subscribe(result => {
         console.log(result);
-        result.forEach(e =>{e.unidad = e.unidad.replace("%B5", "µ")})
+        let i = 0;
+        result.forEach(e =>{
+          e.unidad = e.unidad.replace("%B5", "µ");
+          e.id = i++;
+        });
         this.names = result;
       });
     

@@ -25,15 +25,9 @@ export class NewDietPage implements OnInit {
   ) {
     this.usuario = this.userService.getUser();
     this.dieta = new Dieta();
-    this.listaPropiedades = this.productService.getNamesPropiedades();
-    this.listaPropiedades.sort((n1, n2) => {
-      if (n1.nombre > n2.nombre) {
-        return 1;
-      }
-      if (n1.nombre < n2.nombre) {
-        return -1;
-      }
-      return 0;
+    this.removeUsed();
+    this.listaPropiedades.sort((x, y) => {
+      return x.nombre.localeCompare(y.nombre+"");
     });
   }
 
@@ -49,6 +43,15 @@ export class NewDietPage implements OnInit {
     }
   }
 
+  ionViewWillEnter(){
+    
+    this.removeUsed();
+    this.listaPropiedades.sort((x, y) => {
+      return x.nombre.localeCompare(y.nombre+"");
+    });
+    
+  }
+
   async mensaje(mensaje: string) {
     const toast = await this.toast.create({
       message: mensaje,
@@ -59,5 +62,26 @@ export class NewDietPage implements OnInit {
     toast.present();
   }
 
+
+  removeUsed(){
+    let list: Propiedad[] = this.productService.getNamesPropiedades();
+    let comp: number[] = new Array();
+    this.usuario.dietas.forEach(e => comp.push(e.propiedad.id));
+    comp = comp.sort((x,y)=>{return x - y;});
+    
+    this.listaPropiedades = new Array();
+
+    let i = 0, n = comp.length;
+    list.forEach(e =>{
+      if(i < n)
+        if(e.id != comp[i])
+          this.listaPropiedades.push(e);
+        else
+          i++;
+      else
+        this.listaPropiedades.push(e);
+    });
+  }
+  
   ngOnInit() {}
 }
