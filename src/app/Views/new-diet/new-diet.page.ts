@@ -25,6 +25,7 @@ export class NewDietPage implements OnInit {
   ) {
     this.usuario = this.userService.getUser();
     this.dieta = new Dieta();
+    this.listaPropiedades = new Array();
     this.removeUsed();
     this.listaPropiedades.sort((x, y) => {
       return x.nombre.localeCompare(y.nombre+"");
@@ -45,11 +46,13 @@ export class NewDietPage implements OnInit {
 
   ionViewWillEnter(){
     this.dieta = new Dieta();
+    this.listaPropiedades = new Array();
     this.removeUsed();
     this.listaPropiedades.sort((x, y) => {
       return x.nombre.localeCompare(y.nombre+"");
     });
   }
+
 
   async mensaje(mensaje: string) {
     const toast = await this.toast.create({
@@ -68,6 +71,8 @@ export class NewDietPage implements OnInit {
     this.usuario.dietas.forEach(e => comp.push(e.propiedad.id));
     comp = comp.sort((x,y)=>{return x - y;});
     
+    console.log(comp);
+    
     this.listaPropiedades = new Array();
 
     let i = 0, n = comp.length;
@@ -75,12 +80,16 @@ export class NewDietPage implements OnInit {
       if(i < n)
         if(e.id != comp[i])
           this.listaPropiedades.push(e);
-        else
+        else{
+          console.log(i);
           i++;
+        }
       else
         this.listaPropiedades.push(e);
     });
+
+    console.log(this.listaPropiedades);
+    
   }
-  
   ngOnInit() {}
 }

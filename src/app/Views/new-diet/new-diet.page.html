@@ -8,7 +8,7 @@
   
   <ion-item>
     <ion-label>Propiedades</ion-label>
-    <ion-select multiple="false" placeholder="Selecciona una" [(ngModel)]="dieta.propiedad" >
+    <ion-select multiple="false" placeholder="Selecciona una" [(ngModel)]="dieta.propiedad">
       <ion-select-option *ngFor="let prop of listaPropiedades" [value]="prop">{{prop.nombre}}</ion-select-option>
     </ion-select>
   </ion-item>

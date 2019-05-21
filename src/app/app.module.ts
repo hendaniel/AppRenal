@@ -12,7 +12,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
 import { PipesModule } from './pipes/pipes.module';
 import { NeedAuthGuard } from './NeedAuthGuard';
-import { DatePipe } from '@angular/common'
+import { DatePipe, AsyncPipe} from '@angular/common'
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +26,7 @@ import { DatePipe } from '@angular/common'
   ],
   providers: [
     DatePipe,
+    AsyncPipe,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
