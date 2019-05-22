@@ -148,7 +148,7 @@ export class UserService {
 
    setIndexPerfil(array: number[]): Observable<number[]>{
     const body = new HttpParams()
-    .set('idUsuario',this.usuario.id + "")
+    .set('id',this.usuario.id + "")
     .set("a", array[0] + "")
     .set("b", array[1] + "")
     .set("c", array[2] + "")
@@ -158,7 +158,7 @@ export class UserService {
 
    setIndexAlimentos(array: number[]): Observable<number[]>{
     const body = new HttpParams()
-    .set('idUsuario',this.usuario.id + "")
+    .set('id',this.usuario.id + "")
     .set("a", array[0] + "")
     .set("b", array[1] + "")
     .set("c", array[2] + "")
