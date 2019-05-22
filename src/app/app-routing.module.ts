@@ -16,6 +16,10 @@ const routes: Routes = [
   { path: 'login', loadChildren: './Views/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './Views/register/register.module#RegisterPageModule' },
   { path: 'new-diet', loadChildren: './Views/new-diet/new-diet.module#NewDietPageModule' },
+  { path: 'more-info-product', loadChildren: './Views/more-info-product/more-info-product.module#MoreInfoProductPageModule' },
+  { path: 'more-info-product/:id', loadChildren: './Views/more-info-product/more-info-product.module#MoreInfoProductPageModule' },
+  { path: 'more-info-profile', loadChildren: './Views/more-info-profile/more-info-profile.module#MoreInfoProfilePageModule' },
+
 
 
    

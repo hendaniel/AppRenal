@@ -37,8 +37,7 @@ ion-grid {
 }
 
 .subtitulos {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .textoBoton {
@@ -52,4 +51,11 @@ ion-grid {
   border: 3px solid var(--ion-color-light);
   padding: 5px;
   border-radius: 10px;
+}
+
+.border {
+  margin: 0px 0px;
+  text-align: right;
+  width: 100%;
+  font-size: 14px;
 }

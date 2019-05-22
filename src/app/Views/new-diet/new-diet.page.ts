@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../Services/user.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { user } from "src/app/models/user";
 import { Dieta } from "../../models/dieta";
-import { ToastController, NavController } from "@ionic/angular";
+import { ToastController } from "@ionic/angular";
 import { Propiedad } from "../../models/propiedad";
 import { ProductService } from "../../Services/product.service";
 
@@ -27,12 +27,16 @@ export class NewDietPage implements OnInit {
     this.dieta = new Dieta();
     this.removeUsed();
     this.listaPropiedades.sort((x, y) => {
-      return x.nombre.localeCompare(y.nombre+"");
+      return x.nombre.localeCompare(y.nombre + "");
     });
   }
 
- async crearDieta() {
-    if (this.dieta.meta != null && this.dieta.meta != 0 && this.dieta.propiedad != null) {
+  async crearDieta() {
+    if (
+      this.dieta.meta != null &&
+      this.dieta.meta != 0 &&
+      this.dieta.propiedad != null
+    ) {
       await this.userService.addDietaService(this.dieta).subscribe(res => {
         this.userService.pushDieta(res);
         this.mensaje("Dieta agregada con exito!");
@@ -43,12 +47,9 @@ export class NewDietPage implements OnInit {
     }
   }
 
-  ionViewWillEnter(){
+  cancelar() {
     this.dieta = new Dieta();
-    this.removeUsed();
-    this.listaPropiedades.sort((x, y) => {
-      return x.nombre.localeCompare(y.nombre+"");
-    });
+    this.router.navigate(["/diets"]);
   }
 
   async mensaje(mensaje: string) {
@@ -56,31 +57,66 @@ export class NewDietPage implements OnInit {
       message: mensaje,
       duration: 1000,
       position: "top",
-      animated: true,
+      animated: true
     });
     toast.present();
   }
 
-
-  removeUsed(){
+  removeUsed() {
     let list: Propiedad[] = this.productService.getNamesPropiedades();
     let comp: number[] = new Array();
     this.usuario.dietas.forEach(e => comp.push(e.propiedad.id));
-    comp = comp.sort((x,y)=>{return x - y;});
-    
+    comp = comp.sort((x, y) => {
+      return x - y;
+    });
+
     this.listaPropiedades = new Array();
 
-    let i = 0, n = comp.length;
-    list.forEach(e =>{
-      if(i < n)
-        if(e.id != comp[i])
-          this.listaPropiedades.push(e);
-        else
-          i++;
-      else
-        this.listaPropiedades.push(e);
+    let i = 0,
+      n = comp.length;
+    list.forEach(e => {
+      if (i < n)
+        if (e.id != comp[i]) this.listaPropiedades.push(e);
+        else i++;
+      else this.listaPropiedades.push(e);
     });
   }
-  
+
+  //-------LiveCycles de IONIC--------------------xd
+  ionViewWillEnter() {
+    this.usuario = this.userService.getUser();
+    this.dieta = new Dieta();
+    this.removeUsed();
+    this.listaPropiedades.sort((x, y) => {
+      return x.nombre.localeCompare(y.nombre + "");
+    });
+    console.log("1) New-dieta: Entrando...");
+  }
+
+  ionViewDidEnter() {
+    console.log(
+      "2) New-dieta: Pagina cargada por completo. \n Tamaño listaPropiedades = " +
+        this.listaPropiedades.length
+    );
+    console.log(<user>this.usuario);
+  }
+
+  ionViewWillLeave() {
+    this.dieta = new Dieta();
+    this.listaPropiedades = new Array();
+    console.log("3) New-dieta: Saliendo de la pagina...");
+  }
+
+  ionViewDidLeave() {
+    this.dieta = new Dieta();
+    this.listaPropiedades = new Array();
+    console.log(
+      "4) New-dieta: Ya fuera de la pagina. \n Tamaño listaPropiedades = " +
+        this.listaPropiedades.length
+    );
+  }
+
+  //-------LiveCycles de IONIC--FIN--------------xd
+
   ngOnInit() {}
 }

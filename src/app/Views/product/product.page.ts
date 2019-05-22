@@ -40,6 +40,10 @@ export class ProductPage implements OnInit {
     return this.router.navigate(['/list-compare', this.comp]);
   }
 
+  masInfo(){
+    this.router.navigate(['/more-info-product', this.product.id]);
+  }
+
   comer(product:Resultado){
     this.comp.id = product.id;
     this.comp.nombre = product.nombre;
