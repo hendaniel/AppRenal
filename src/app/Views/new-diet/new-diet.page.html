@@ -6,7 +6,7 @@
 
 <ion-content>
   <div class="border">
-    <ion-list lines="none" style="border: 3px solid var(--ion-color-light);">
+    <ion-list lines="none" style="border: 3px solid var(--ion-color-light); margin: 5px 0px;">
       <ion-item>
         <ion-text color="primary">
           <p>
@@ -19,25 +19,23 @@
       <ion-item>
         <ion-label>Propiedades</ion-label>
         <ion-select
+          style="width: 300px;"
           okText="Seleccionar"
           cancelText="Cancelar"
           multiple="false"
-          placeholder="Selecciona una"
+          placeholder="Selecciona"
           [(ngModel)]="dieta.propiedad"
         >
           <ion-select-option
             *ngFor="let prop of listaPropiedades; let i = index"
             [value]="prop"
-
-            >{{ (i+1) + ' ' + prop.nombre }}</ion-select-option
+            >{{ prop.nombre }}</ion-select-option
           >
         </ion-select>
       </ion-item>
     </ion-list>
 
-    <br />
-
-    <ion-list lines="none" style="border: 3px solid var(--ion-color-light);">
+    <ion-list lines="none" style="border: 3px solid var(--ion-color-light); margin: 5px 0px;">
       <ion-item>
         <ion-text color="primary">
           <p>
@@ -61,6 +59,25 @@
           type="number"
           placeholder="Selecciona una propiedad primero."
         ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list
+      *ngIf="
+        dieta.meta != null && dieta.propiedad != null && dieta.propiedad != ''
+      "
+      lines="none"
+      style="border: 3px solid var(--ion-color-light); margin: 5px 0px;"
+    >
+      <ion-item>
+        <ion-text lines="none" color="primary" style="width: 100%; text-align: center;">
+          <p>
+            <b>La nueva dieta es:</b> <br />
+            {{ dieta.propiedad.nombre }}<br />
+            <b>Con una meta de:</b> <br>
+            {{ dieta.meta + " " + dieta.propiedad.unidad }}
+          </p>
+        </ion-text>
       </ion-item>
     </ion-list>
   </div>

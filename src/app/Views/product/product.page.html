@@ -18,7 +18,7 @@
       <ion-thumbnail
         style="height: 100px; width: 100px; text-align: center; margin: auto;"
       >
-        <ion-skeleton-text animated></ion-skeleton-text>
+        <ion-skeleton-text></ion-skeleton-text>
       </ion-thumbnail>
     </ion-card-content>
   </ion-card>
@@ -36,31 +36,34 @@
       <ion-title>Valor Nutricional</ion-title>
     </ion-item>
 
-    <ion-list *ngFor="let index of selection;" lines="none">
-      <ion-item>
+    <ion-list lines="none">
+      <ion-item *ngFor="let index of selection">
         <ion-label>{{ propiedades[index].nombre }}</ion-label>
         <ion-badge color="primary" class="badge"
-          >{{ product.propiedades[index] }} {{ propiedades[index].unidad }}</ion-badge
+          >{{ product.propiedades[index] }}
+          {{ propiedades[index].unidad }}</ion-badge
         >
+      </ion-item>
+
+      <ion-item>
+        <div class="border">
+          <ion-chip color="primary" style="font-size: 16px;" (click)="masInfo()">
+            <ion-label style="width: 100%;  text-align: center;">
+              Ver más </ion-label> <ion-icon name="arrow-forward"></ion-icon
+                >
+          </ion-chip>
+        </div>
       </ion-item>
     </ion-list>
   </div>
 
-  <div style="width: 100%; margin-bottom: 70px;">
-    <ion-fab  horizontal="center">
-      <ion-fab-button>
-        <ion-icon name="swap"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-list side="start">
-        <ion-button (click)="comparar(product)" class="boton" shape="round">
-          <ion-label class="subtitulos"> Comparar </ion-label>
-        </ion-button>
-      </ion-fab-list>
-      <ion-fab-list side="end">
-        <ion-button (click)="comer(product)" class="boton" shape="round">
-          <ion-label class="subtitulos"> Comer </ion-label>
-        </ion-button>
-      </ion-fab-list>
-    </ion-fab>
+  <div style="width: 100%; margin-bottom: 10px; text-align: center">
+    <ion-button (click)="comparar(product)" class="boton" shape="round">
+      <ion-label class="subtitulos"> Comparar </ion-label>
+    </ion-button>
+
+    <ion-button (click)="comer(product)" class="boton" shape="round">
+      <ion-label class="subtitulos"> Comer </ion-label>
+    </ion-button>
   </div>
 </ion-content>

@@ -43,6 +43,10 @@ export class ProfilePage implements OnInit{
     console.log(this.usuario.indexPerfil);
   }
 
+  masInfo(){
+    this.nav.navigateForward(['/more-info-profile']);
+  }
+
   ngOnDestroy(){
     console.log("Finaliza");
   }

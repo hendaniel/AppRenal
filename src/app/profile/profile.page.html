@@ -29,16 +29,28 @@
       </h4>
 
       <div *ngIf="mostrar()">
-        <ion-list
-          
-          lines="none"
-        >
-          <ion-item *ngFor="let index of usuario.indexPerfil;">
+        <ion-list lines="none">
+          <ion-item *ngFor="let index of usuario.indexPerfil">
             <ion-label>{{ propiedades[index].nombre }}</ion-label>
             <ion-badge color="primary" class="badge"
               >{{ usuario.propiedades[index].toFixed(2) }}
               {{ propiedades[index].unidad }}</ion-badge
             >
+          </ion-item>
+
+          <ion-item>
+            <div class="border">
+              <ion-chip
+                color="primary"
+                style="font-size: 16px;"
+                (click)="masInfo()"
+              >
+                <ion-label style="width: 100%;  text-align: center;">
+                  Ver más
+                </ion-label>
+                <ion-icon name="arrow-forward"></ion-icon>
+              </ion-chip>
+            </div>
           </ion-item>
         </ion-list>
       </div>
@@ -62,9 +74,7 @@
           <ion-label class="subtitulos">{{
             historia.time.toLocaleString()
           }}</ion-label>
-          <ion-label>{{
-            historia.alimento.nombre
-          }}</ion-label>
+          <ion-label>{{ historia.alimento.nombre }}</ion-label>
           <ion-badge color="primary" class="badge"
             >{{ historia.cantidad }} g</ion-badge
           >
