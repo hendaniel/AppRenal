@@ -13,15 +13,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      <ion-thumbnail
-        style="height: 100px; width: 100px; text-align: center; margin: auto;"
-      >
-        <ion-skeleton-text></ion-skeleton-text>
-      </ion-thumbnail>
-    </ion-card-content>
-  </ion-card>
+  <div class="photo">
+    <ion-avatar class="avatar">
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </ion-avatar>
+  </div>
 
   <div>
     <ion-item>
@@ -47,10 +43,15 @@
 
       <ion-item>
         <div class="border">
-          <ion-chip color="primary" style="font-size: 16px;" (click)="masInfo()">
+          <ion-chip
+            color="primary"
+            style="font-size: 16px;"
+            (click)="masInfo()"
+          >
             <ion-label style="width: 100%;  text-align: center;">
-              Ver más </ion-label> <ion-icon name="arrow-forward"></ion-icon
-                >
+              Ver más
+            </ion-label>
+            <ion-icon name="arrow-forward"></ion-icon>
           </ion-chip>
         </div>
       </ion-item>

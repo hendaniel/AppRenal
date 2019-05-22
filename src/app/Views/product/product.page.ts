@@ -41,7 +41,7 @@ export class ProductPage implements OnInit {
   }
 
   masInfo(){
-    this.router.navigate(['/more-info-product']);
+    this.router.navigate(['/more-info-product', this.product.id]);
   }
 
   comer(product:Resultado){
