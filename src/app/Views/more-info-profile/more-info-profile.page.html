@@ -1,9 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>more-info-profile</ion-title>
+<ion-header no-border>
+  <ion-toolbar color="light">
+    <ion-title>Más Info Perfil</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list lines="true">
+    <ion-item *ngFor="let info of info; let i = index">
+      <ion-label>{{ info.nombre }}</ion-label>
+      <ion-badge color="x" class="badge letra"
+        >{{ info.valor.toFixed(2) }} {{ info.unidad }}</ion-badge
+      >
+    </ion-item>
+  </ion-list>
 </ion-content>

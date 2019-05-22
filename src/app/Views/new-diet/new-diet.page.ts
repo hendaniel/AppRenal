@@ -98,7 +98,7 @@ export class NewDietPage implements OnInit {
       "2) New-dieta: Pagina cargada por completo. \n Tamaño listaPropiedades = " +
         this.listaPropiedades.length
     );
-    console.log(<user> this.usuario);
+    console.log(<user>this.usuario);
   }
 
   ionViewWillLeave() {
@@ -111,7 +111,8 @@ export class NewDietPage implements OnInit {
     this.dieta = new Dieta();
     this.listaPropiedades = new Array();
     console.log(
-      "4) New-dieta: Ya fuera de la pagina. \n Tamaño listaPropiedades = " + this.listaPropiedades.length
+      "4) New-dieta: Ya fuera de la pagina. \n Tamaño listaPropiedades = " +
+        this.listaPropiedades.length
     );
   }
 

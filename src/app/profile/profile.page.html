@@ -72,9 +72,9 @@
       >
         <ion-item>
           <ion-label class="subtitulos">{{
-            historia.time.toLocaleString()
-          }}</ion-label>
-          <ion-label>{{ historia.alimento.nombre }}</ion-label>
+            historia.time | date:"d/M/yy, hh:mm a" }}
+          </ion-label>
+          <ion-label style="font-weight: bold; text-align: left;">{{ historia.alimento.nombre}}</ion-label>
           <ion-badge color="primary" class="badge"
             >{{ historia.cantidad }} g</ion-badge
           >

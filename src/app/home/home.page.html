@@ -46,15 +46,8 @@
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <div class="boton">
-      <ion-button
-        class="textoBoton"
-        (click)="newHabit()"
-        fill="solid"
-        shape="round"
-      >
-        Nuevo habito
-      </ion-button>
-    </div>
-  </ion-fab>
+      <ion-fab-button (click)="newHabit()">
+          <ion-icon name="medkit"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>
