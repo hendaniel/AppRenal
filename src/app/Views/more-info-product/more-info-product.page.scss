@@ -1,0 +1,30 @@
+.badge {
+  font-size: 16px;
+  --padding-bottom: 10px;
+  --padding-end: 15px;
+  --padding-start: 15px;
+  --padding-top: 10px;
+}
+
+.letra {
+  color: var(--ion-color-primary);
+}
+
+.avatar {
+  height: 135px;
+  width: 135px;
+  position: relative;
+  margin: 0px auto;
+}
+
+.photo {
+  font-size: 25px;
+  margin: 0px 10px;
+  height: 150px;
+  border: 3px solid var(--ion-color-light);
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  align-content: center;
+  align-self: center;
+}

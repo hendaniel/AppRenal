@@ -22,8 +22,12 @@ export class SearchPage implements OnInit {
     else{
       this.products = productService.getListNameProducts();
     }
+  }
 
-    
+  ionViewWillEnter(){
+    if(this.productService.getListNameProducts() != null){
+      this.products = this.productService.getListNameProducts();
+    }
   }
 
   searchProduct(event) {

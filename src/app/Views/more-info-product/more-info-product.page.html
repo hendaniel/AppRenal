@@ -1,0 +1,55 @@
+<ion-header no-border>
+  <ion-toolbar color="light">
+    <ion-title>Más Info</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="backProduct()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-item lines="none">
+      <div
+        style="width: 100%; text-align: center; font-weight: bold; font-size: 25px;"
+      >
+        <ion-text color="primary">
+          <p>{{ producto.nombre }}</p>
+        </ion-text>
+      </div>
+    </ion-item>
+
+    <div class="photo">
+      <ion-avatar class="avatar">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+    </div>
+
+    <ion-item>
+      <ion-label color="primary">Categoria</ion-label>
+      <ion-badge color="x" class="badge letra">{{
+        producto.categoria
+      }}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Tipo</ion-label>
+      <ion-badge color="x" class="badge letra">{{ producto.tipo }}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-title> Valor Nutricional </ion-title>
+    </ion-item>
+
+    <ion-list lines="none">
+      <ion-item *ngFor="let prop of propiedades; let i = index">
+        <ion-label>{{ prop.nombre }}</ion-label>
+        <ion-badge color="primary" class="badge"
+          >{{ producto.propiedades[i] }} {{ prop.unidad }}</ion-badge
+        >
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

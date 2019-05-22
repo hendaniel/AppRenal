@@ -11,19 +11,55 @@
 
 <ion-content>
   <ion-list lines="none">
-    <ion-item>
-      <ion-text color="primary">
+    <div style="width: 100%; font-size: 18px;">
+      <ion-text color="primary" style="text-align: center;">
         <p>
-          ¿Cuantos gramos de {{ alimento.nombre }} de tipo
-          {{ alimento.tipo }} vas a comer?
+          <b>¿Cuantos gramos vas a comer?</b> <br /><br />
+          <b>Alimento: </b> <br>{{ alimento.nombre }} <br /><br>
+          <b>Tipo: </b> <br>{{ alimento.tipo }} <br /><br>
+          <b>Categoria: </b> <br>{{ alimento.categoria }}
         </p>
       </ion-text>
-    </ion-item>
-    <ion-item>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer no-border>
+    <ion-toolbar no-border>
+      <ion-item lines="none">
+        <ion-grid class="tam">
+          <ion-row>
+            <ion-col align-self-start size="3">
+              <ion-icon
+                style="font-size: 40px;"
+                color="primary"
+                (click)="valor = valor != 0 ? valor - 1 : 0"
+                name="arrow-dropdown-circle"
+              ></ion-icon>
+            </ion-col>
+            <ion-col align-self-center>
+              <ion-label>{{ valor }} g</ion-label>
+            </ion-col>
+            <ion-col align-self-end size="3">
+              <ion-icon
+                style="font-size: 40px;"
+                color="primary"
+                (click)="valor = valor != 1000 ? valor + 1 : 1000"
+                name="arrow-dropup-circle"
+              ></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-toolbar>
+  </ion-footer>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-item lines="none">
       <ion-range
         min="0"
         max="1000"
-        pin="true"
         class="range"
         value="{{ valor }}"
         [(ngModel)]="valor"
@@ -32,28 +68,17 @@
         <ion-label class="num" slot="end"> 1000 </ion-label>
       </ion-range>
     </ion-item>
-    <ion-item>
-      <ion-grid class="tam">
-        <ion-row>
-          <ion-col align-self-start size="3">
-              <ion-icon style="font-size: 25px;" color="primary" (click)="valor = valor != 0 ? valor-1 : 0" name="arrow-dropdown-circle"></ion-icon>
-          </ion-col>
-          <ion-col align-self-center>
-            <ion-label>{{valor}} g</ion-label>
-          </ion-col>
-          <ion-col align-self-end size="3">
-              <ion-icon  style="font-size: 25px;" color="primary" (click)="valor = valor != 1000 ? valor+1 : 1000" name="arrow-dropup-circle"></ion-icon>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
+  </ion-toolbar>
+</ion-footer>
 
-    <ion-item>
-      <div class="center">
-      <ion-button (click)="comer()" class="comer" fill="outline">
-        Aceptar y comer
-      </ion-button>
-    </div>
-    </ion-item>
-  </ion-list>
-</ion-content>
+<ion-footer no-border>
+    <ion-toolbar>
+      <ion-item lines="none">
+        <div class="center">
+          <ion-button (click)="comer()" class="comer" fill="outline">
+            Aceptar y comer
+          </ion-button>
+        </div>
+      </ion-item>
+    </ion-toolbar>
+  </ion-footer>
