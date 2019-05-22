@@ -91,4 +91,14 @@ export class RegisterPage implements OnInit {
     });
     toast.present();
   }
+
+  ionViewWillEnter() {
+    this.hide = true;
+    this.nombre = "";
+    this.correo = "";
+    this.fecha = new Date();
+    this.contrasena = "";
+    this.contrasenaDos = "";
+  }
 }
+

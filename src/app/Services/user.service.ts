@@ -145,4 +145,24 @@ export class UserService {
     .set("meta", dieta.meta + "");
     return this.http.post<Dieta>(environment.urlAddDieta, body);
    }
+
+   setIndexPerfil(array: number[]): Observable<number[]>{
+    const body = new HttpParams()
+    .set('idUsuario',this.usuario.id + "")
+    .set("a", array[0] + "")
+    .set("b", array[1] + "")
+    .set("c", array[2] + "")
+    .set("d", array[3] + "")
+    return this.http.post<number[]>(environment.urlSetIndexPerfil, body);
+  }
+
+   setIndexAlimentos(array: number[]): Observable<number[]>{
+    const body = new HttpParams()
+    .set('idUsuario',this.usuario.id + "")
+    .set("a", array[0] + "")
+    .set("b", array[1] + "")
+    .set("c", array[2] + "")
+    .set("d", array[3] + "")
+    return this.http.post<number[]>(environment.urlSetIndexAlimentos, body);
+  }
 }

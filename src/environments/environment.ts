@@ -24,7 +24,9 @@ export const environment = {
   urlAddHistoria:       "http://" + myIP + ":8081/addHistoria",
   urlGetHistorias:      "http://" + myIP + ":8081/getHistoriaById",
   urlAddDieta:          "http://" + myIP + ":8081/addDieta",
-  urlGetUserById:       "http://" + myIP + ":8081/getUserById"
+  urlGetUserById:       "http://" + myIP + ":8081/getUserById",
+  urlSetIndexPerfil:    "http://" + myIP + ":8081/setIndexProfile",
+  urlSetIndexAlimentos: "http://" + myIP + ":8081/setIndexAlimento"
 };
 
 
