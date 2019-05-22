@@ -1,6 +1,9 @@
 <ion-header no-border>
   <ion-toolbar color="light">
-    <ion-buttons slot="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="preferencias()">
+        <ion-icon slot="icon-only" name="options"></ion-icon>
+      </ion-button>
       <ion-button (click)="logout()">
         <ion-icon slot="icon-only" name="exit"></ion-icon>
       </ion-button>
@@ -8,6 +11,8 @@
     <ion-title class="titulos">Mi Cuenta</ion-title>
   </ion-toolbar>
 </ion-header>
+
+
 
 <ion-content>
   <div class="subtitulos">
@@ -71,10 +76,12 @@
         class="subtitulos"
       >
         <ion-item>
-          <ion-label class="subtitulos">{{
-            historia.time | date:"d/M/yy, hh:mm a" }}
+          <ion-label class="subtitulos"
+            >{{ historia.time | date: "d/M/yy, hh:mm a" }}
           </ion-label>
-          <ion-label style="font-weight: bold; text-align: left;">{{ historia.alimento.nombre}}</ion-label>
+          <ion-label style="font-weight: bold; text-align: left;">{{
+            historia.alimento.nombre
+          }}</ion-label>
           <ion-badge color="primary" class="badge"
             >{{ historia.cantidad }} g</ion-badge
           >

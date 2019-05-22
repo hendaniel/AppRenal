@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'new-diet', loadChildren: './Views/new-diet/new-diet.module#NewDietPageModule' },
   { path: 'more-info-product', loadChildren: './Views/more-info-product/more-info-product.module#MoreInfoProductPageModule' },
   { path: 'more-info-product/:id', loadChildren: './Views/more-info-product/more-info-product.module#MoreInfoProductPageModule' },
-  { path: 'more-info-profile', loadChildren: './Views/more-info-profile/more-info-profile.module#MoreInfoProfilePageModule' },
+  { path: 'more-info-profile', loadChildren: './Views/more-info-profile/more-info-profile.module#MoreInfoProfilePageModule' },  { path: 'preferences', loadChildren: './Views/preferences/preferences.module#PreferencesPageModule' },
+
 
 
 
