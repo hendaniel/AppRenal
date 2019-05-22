@@ -33,13 +33,17 @@ export class PreferencesPage implements OnInit {
   }
 
   addNewIndexPerfil() {
-    this.uService.setIndexPerfil(this.indexPerfil).subscribe();
-    this.mensaje("Las preferencias del perfil han cambiado con exito!");
+    this.uService.setIndexPerfil(this.indexPerfil).subscribe(() => {
+      this.mensaje("Preferencias actualizadas", "middle");
+      this.usuario.indexPerfil = this.indexPerfil;
+    });
   }
 
   addNewIndexAlimento() {
-    this.uService.setIndexPerfil(this.indexAlimento).subscribe();
-    this.mensaje("Las preferencias del alimento han cambiado con exito!");
+    this.uService.setIndexAlimentos(this.indexAlimento).subscribe(() => {
+      this.mensaje("Preferencias actualizadas", "top");
+      this.usuario.indexAlimento = this.indexAlimento;
+    });
   }
 
   actualizar() {
@@ -47,24 +51,24 @@ export class PreferencesPage implements OnInit {
     console.log(this.indexPerfil);
     this.addNewIndexAlimento();
     this.addNewIndexPerfil();
-    this.mensaje("Preferencias actualizadas");
+    this.mensaje("Preferencias actualizadas", "bottom");
   }
 
   ionViewWillLeave() {
     this.indexAlimento = new Array();
     this.indexPerfil = new Array();
-    this.usuario = new user;
+    this.usuario = new user();
   }
 
   ionViewDidLeave() {
     this.usuario = this.uService.getUser();
   }
 
-  async mensaje(mensaje: string) {
+  async mensaje(mensaje, pos) {
     const toast = await this.toast.create({
       message: mensaje,
       duration: 1000,
-      position: "bottom"
+      position: pos
     });
     toast.present();
   }
