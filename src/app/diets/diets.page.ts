@@ -17,8 +17,6 @@ export class DietsPage implements OnInit {
     this.dietas = new Array();
     this.usuario = this.service.getUser();
     this.dietas = this.usuario.dietas;
-    console.log(this.dietas);
-    
     }
 
   dietasExist(): boolean {

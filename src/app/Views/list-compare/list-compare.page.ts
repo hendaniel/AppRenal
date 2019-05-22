@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../Services/product.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Resultado, DosAlimentos } from "../../models/resultado";
-import { ToastController } from '@ionic/angular';
+import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: "app-list-compare",
@@ -18,17 +18,8 @@ export class ListComparePage implements OnInit {
     private productService: ProductService,
     private router: Router,
     private ativateroute: ActivatedRoute,
-    private toastController: ToastController) {
-
-      if(productService.getListNameProducts() == null){
-        this.productService.getNamesProducts().subscribe(resp => {
-          this.products = resp;
-          this.productService.setListNameProducts(resp);
-        });
-      }
-      else{
-        this.products = productService.getListNameProducts();
-      }
+    private toastController: ToastController
+  ) {
     this.ids = new DosAlimentos();
     this.ids.id_uno = Number.parseInt(
       this.ativateroute.snapshot.paramMap.get("id")
@@ -38,6 +29,14 @@ export class ListComparePage implements OnInit {
     this.ids.categoria_uno = this.ativateroute.snapshot.paramMap.get(
       "categoria"
     );
+  }
+
+  ionViewWillEnter(){
+    if(this.productService.getListNameProducts() != null){
+      this.products = this.productService.getListNameProducts();
+    } else {
+      return this.router.navigate(['/search']);
+    }
   }
 
   searchProduct(event) {
@@ -57,7 +56,7 @@ export class ListComparePage implements OnInit {
     } else {
       console.log("Los productos a comparar deben ser diferentes.");
       const toast = await this.toastController.create({
-        message: 'Los productos a comparar deben ser diferentes.',
+        message: "Los productos a comparar deben ser diferentes.",
         duration: 2000
       });
       toast.present();
@@ -70,7 +69,7 @@ export class ListComparePage implements OnInit {
     reg.nombre = this.ids.nombre_uno;
     reg.categoria = this.ids.categoria_uno;
     reg.tipo = this.ids.tipo_uno;
-    return this.router.navigate(['product', reg]);
+    return this.router.navigate(["product", reg]);
   }
 
   ngOnInit() {}

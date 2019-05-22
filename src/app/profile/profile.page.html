@@ -30,10 +30,10 @@
 
       <div *ngIf="mostrar()">
         <ion-list
-          *ngFor="let index of usuario.indexPerfil;"
+          
           lines="none"
         >
-          <ion-item>
+          <ion-item *ngFor="let index of usuario.indexPerfil;">
             <ion-label>{{ propiedades[index].nombre }}</ion-label>
             <ion-badge color="primary" class="badge"
               >{{ usuario.propiedades[index].toFixed(2) }}
