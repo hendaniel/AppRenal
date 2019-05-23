@@ -21,7 +21,7 @@
         </ion-text>
       </ion-item>
       <ion-item>
-        <ion-label>Selecciona</ion-label>
+        <ion-label>Perfil</ion-label>
         <ion-select
           multiple="true"
           placeholder="Selecciona"
@@ -45,6 +45,23 @@
           </p>
         </ion-text>
       </ion-item>
+
+      <ion-toolbar>
+        <div
+          style="width: 100%; margin: 0px 0px; text-align: center; padding: 0px 20%;"
+        >
+          <ion-button
+            style="min-width: 160px;"
+            [disabled]="this.indexPerfil.length != 4"
+            (click)="actualizarIndexPerfil()"
+            expand="block"
+            fill="outline"
+            shape="round"
+          >
+            Actualizar
+          </ion-button>
+        </div>
+      </ion-toolbar>
     </div>
 
     <div class="box">
@@ -58,7 +75,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>En los productos</ion-label>
+        <ion-label>Alimentos</ion-label>
         <ion-select
           multiple="true"
           placeholder="Selecciona"
@@ -82,27 +99,25 @@
           </p>
         </ion-text>
       </ion-item>
+
+      <ion-toolbar>
+        <div
+          style="width: 100%; margin: 0px 0px; text-align: center; padding: 0px 20%;"
+        >
+          <ion-button
+            style="min-width: 160px;"
+            [disabled]="this.indexAlimento.length != 4"
+            (click)="actualizarIndexAlimento()"
+            expand="block"
+            fill="outline"
+            shape="round"
+          >
+            Actualizar
+          </ion-button>
+        </div>
+      </ion-toolbar>
     </div>
   </ion-list>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <div
-      style="width: 100%; margin: 0px 0px; text-align: center; padding: 0px 20%;"
-    >
-      <ion-button
-        style="min-width: 160px;"
-        [disabled]="
-          this.indexAlimento.length != 4 || this.indexPerfil.length != 4
-        "
-        (click)="actualizar()"
-        expand="block"
-        fill="outline"
-        shape="round"
-      >
-        Actualizar
-      </ion-button>
-    </div>
-  </ion-toolbar>
-</ion-footer>
+<ion-footer> </ion-footer>

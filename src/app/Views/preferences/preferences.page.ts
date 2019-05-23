@@ -34,24 +34,28 @@ export class PreferencesPage implements OnInit {
 
   addNewIndexPerfil() {
     this.uService.setIndexPerfil(this.indexPerfil).subscribe(() => {
-      this.mensaje("Preferencias actualizadas", "middle");
+      this.mensaje("Preferencias del perfil actualizadas", "top");
       this.usuario.indexPerfil = this.indexPerfil;
     });
   }
 
   addNewIndexAlimento() {
     this.uService.setIndexAlimentos(this.indexAlimento).subscribe(() => {
-      this.mensaje("Preferencias actualizadas", "top");
+      this.mensaje("Preferencias de los alimentos actualizadas", "top");
       this.usuario.indexAlimento = this.indexAlimento;
     });
   }
 
-  actualizar() {
+  actualizarIndexPerfil() {
+    console.log(this.indexAlimento);
+    console.log(this.indexPerfil);
+    this.addNewIndexPerfil();
+  }
+
+  actualizarIndexAlimento() {
     console.log(this.indexAlimento);
     console.log(this.indexPerfil);
     this.addNewIndexAlimento();
-    this.addNewIndexPerfil();
-    this.mensaje("Preferencias actualizadas", "bottom");
   }
 
   ionViewWillLeave() {
