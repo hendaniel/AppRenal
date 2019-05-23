@@ -1,0 +1,123 @@
+<ion-header no-border>
+  <ion-toolbar color="light" no-border>
+    <ion-title class="titulos">Preferencias</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <div class="box">
+      <ion-item>
+        <ion-text color="primary">
+          <p>
+            Selecciona <b>4 (cuatro)</b> propiedades principales que desees ver
+            en el perfil.
+          </p>
+        </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label>Perfil</ion-label>
+        <ion-select
+          multiple="true"
+          placeholder="Selecciona"
+          [(ngModel)]="indexPerfil"
+        >
+          <ion-select-option
+            *ngFor="let prop of propiedades; let i = index"
+            [value]="prop.id"
+            >{{ prop.nombre }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="indexPerfil.length > 0">
+        <ion-text color="primary">
+          <p>
+            <b>Has seleccionado ({{ indexPerfil.length }}) </b> <br />
+            <span *ngFor="let number of indexPerfil; let i = index">
+              • {{ propiedades[number].nombre }} <br />
+            </span>
+          </p>
+        </ion-text>
+      </ion-item>
+
+      <ion-toolbar>
+        <div
+          style="width: 100%; margin: 0px 0px; text-align: center; padding: 0px 20%;"
+        >
+          <ion-button
+            style="min-width: 160px;"
+            [disabled]="this.indexPerfil.length != 4"
+            (click)="actualizarIndexPerfil()"
+            expand="block"
+            fill="outline"
+            shape="round"
+          >
+            Actualizar
+          </ion-button>
+        </div>
+      </ion-toolbar>
+    </div>
+
+    <div class="box">
+      <ion-item>
+        <ion-text color="primary">
+          <p>
+            Selecciona <b>4 (cuatro)</b> propiedades principales que desees ver
+            en los alimentos.
+          </p>
+        </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Alimentos</ion-label>
+        <ion-select
+          multiple="true"
+          placeholder="Selecciona"
+          [(ngModel)]="indexAlimento"
+        >
+          <ion-select-option
+            *ngFor="let prop of propiedades; let i = index"
+            [value]="prop.id"
+            >{{ prop.nombre }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="indexAlimento.length > 0">
+        <ion-text color="primary">
+          <p>
+            <b>Has seleccionado ({{ indexAlimento.length }}) </b> <br />
+            <span *ngFor="let number of indexAlimento; let i = index">
+              • {{ propiedades[number].nombre }} <br />
+            </span>
+          </p>
+        </ion-text>
+      </ion-item>
+
+      <ion-toolbar>
+        <div
+          style="width: 100%; margin: 0px 0px; text-align: center; padding: 0px 20%;"
+        >
+          <ion-button
+            style="min-width: 160px;"
+            [disabled]="this.indexAlimento.length != 4"
+            (click)="actualizarIndexAlimento()"
+            expand="block"
+            fill="outline"
+            shape="round"
+          >
+            Actualizar
+          </ion-button>
+        </div>
+      </ion-toolbar>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer> </ion-footer>

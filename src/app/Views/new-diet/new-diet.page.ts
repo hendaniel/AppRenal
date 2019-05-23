@@ -25,6 +25,7 @@ export class NewDietPage implements OnInit {
   ) {
     this.usuario = this.userService.getUser();
     this.dieta = new Dieta();
+    this.listaPropiedades = new Array();
     this.removeUsed();
     this.listaPropiedades.sort((x, y) => {
       return x.nombre.localeCompare(y.nombre + "");
@@ -51,6 +52,7 @@ export class NewDietPage implements OnInit {
     this.dieta = new Dieta();
     this.router.navigate(["/diets"]);
   }
+
 
   async mensaje(mensaje: string) {
     const toast = await this.toast.create({

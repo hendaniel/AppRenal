@@ -46,8 +46,17 @@
   </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="newHabit()">
-          <ion-icon name="medkit"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+    <ion-fab-button (click)="newHabit()">
+      <ion-icon name="refresh"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button><ion-icon name="share"></ion-icon></ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button (click)="shareFacebook()"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="shareTwitter()"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+      <ion-fab-button (click)="shareWhatsapp()"><ion-icon name="logo-whatsapp"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

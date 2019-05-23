@@ -38,6 +38,11 @@ export class ProfilePage implements OnInit {
     }, 2000);
   }
 
+  preferencias(){
+    this.nav.setDirection("forward");
+    this.nav.navigateForward(['/preferences']);
+  }
+
   ionViewWillEnter() {
     this.usuario = this.userServices.getUser();
     this.historias = this.userServices.getHistorias();
@@ -52,7 +57,7 @@ export class ProfilePage implements OnInit {
   }
 
   logout() {
-    console.log("logout Clicked");
+    console.log("Se ha cerrado la sesion.");
     this.usuario = new user();
     this.usuario.dietas = new Array();
     this.usuario.propiedades = new Array();
